@@ -22,13 +22,15 @@ import Profile from "../src/pages/Profile/Profile";
 //function app
 function App() {
   return (
-    // <ApolloProvider client={client}>
+    // // <ApolloProvider client={client}>
     <Router>
       <NavBar />
-
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
       <Footer />
     </Router>
-    // </ApolloProvider>
+    // // </ApolloProvider>
   );
 }
 
