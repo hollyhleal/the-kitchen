@@ -139,26 +139,39 @@ export default function NavBar() {
           <img
             alt="nature"
             className="h-[32rem] w-full object-cover object-center"
-            src="https://images.unsplash.com/photo-1485470733090-0aae1788d5af?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2717&q=80"
+            src="https://images.unsplash.com/photo-1659318006095-4d44845f3a1b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2110&q=80"
           />
         </Card>
         <Typography variant="h2" color="green" className="mb-2">
-          What is Material Tailwind
+          Test
         </Typography>
         <Typography color="gray" className="font-normal">
-          Can you help me out? you will get a lot of free exposure doing this
-          can my website be in english?. There is too much white space do less
-          with more, so that will be a conversation piece can you rework to make
-          the pizza look more delicious other agencies charge much lesser can
-          you make the blue bluer?. I think we need to start from scratch can my
-          website be in english?, yet make it sexy i&apos;ll pay you in a week
-          we don&apos;t need to pay upfront i hope you understand can you make
-          it stand out more?. Make the font bigger can you help me out? you will
-          get a lot of free exposure doing this that&apos;s going to be a chunk
-          of change other agencies charge much lesser. Are you busy this
-          weekend? I have a new project with a tight deadline that&apos;s going
-          to be a chunk of change. There are more projects lined up charge extra
-          the next time.
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Enim
+            facilisis gravida neque convallis a cras. Proin nibh nisl
+            condimentum id venenatis a. Ipsum dolor sit amet consectetur
+            adipiscing elit. Leo urna molestie at elementum eu facilisis sed
+            odio morbi. Cum sociis natoque penatibus et. Sem viverra aliquet
+            eget sit amet tellus cras adipiscing enim. Vestibulum lorem sed
+            risus ultricies tristique. Ultrices eros in cursus turpis massa
+            tincidunt. Ipsum suspendisse ultrices gravida dictum fusce ut
+            placerat orci nulla. Nisi scelerisque eu ultrices vitae auctor eu
+            augue ut lectus. At elementum eu facilisis sed odio morbi. Est
+            placerat in egestas erat imperdiet sed. Suspendisse ultrices gravida
+            dictum fusce ut placerat orci nulla pellentesque. Pellentesque
+            habitant morbi tristique senectus et netus. Orci sagittis eu
+            volutpat odio facilisis mauris sit amet. Nisl nisi scelerisque eu
+            ultrices. Vitae auctor eu augue ut lectus. Massa enim nec dui nunc.
+            In arcu cursus euismod quis. Ullamcorper eget nulla facilisi etiam
+            dignissim diam. Neque viverra justo nec ultrices. Ac turpis egestas
+            maecenas pharetra convallis posuere. Etiam non quam lacus
+            suspendisse faucibus interdum posuere. Risus feugiat in ante metus
+            dictum at. Arcu bibendum at varius vel pharetra vel turpis. Sed
+            blandit libero volutpat sed cras ornare. Pretium quam vulputate
+            dignissim suspendisse in. Sed nisi lacus sed viverra tellus in hac
+            habitasse.
+          </p>
         </Typography>
       </div>
     </>
