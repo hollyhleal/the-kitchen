@@ -11,7 +11,7 @@ import Footer from "./components/Footer";
 
 //import pages
 
-// import Page from ''
+import Profile from "../src/pages/Profile/Profile";
 // import Page from ''
 // import Page from ''
 // import Page from ''
