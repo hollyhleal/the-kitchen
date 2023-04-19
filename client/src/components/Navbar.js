@@ -25,13 +25,12 @@ export default function NavBar() {
 
   const navList = (
     <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
-      <Typography
-        as="li"
-        variant="small"
-        color="green"
-        className="p-1 font-normal"
-      >
-        <NavLink onClick={navLinkCLick} className="flex items-center" to="/">
+      <Typography as="li" variant="small" color="" className="p-1 font-normal">
+        <NavLink
+          onClick={navLinkCLick}
+          className="flex items-center font-semibold text-blue-800 text-2xl"
+          to="/"
+        >
           Home
         </NavLink>
       </Typography>
@@ -41,7 +40,10 @@ export default function NavBar() {
         color="green"
         className="p-1 font-normal"
       >
-        <NavLink onClick={navLinkCLick} className="flex items-center">
+        <NavLink
+          onClick={navLinkCLick}
+          className="flex items-center font-semibold text-blue-800 text-2xl"
+        >
           Profile
         </NavLink>
       </Typography>
@@ -51,7 +53,10 @@ export default function NavBar() {
         color="green"
         className="p-1 font-normal"
       >
-        <NavLink onClick={navLinkCLick} className="flex items-center">
+        <NavLink
+          onClick={navLinkCLick}
+          className="flex items-center font-semibold text-blue-800 text-2xl"
+        >
           Booking
         </NavLink>
       </Typography>
@@ -61,7 +66,10 @@ export default function NavBar() {
         color="green"
         className="p-1 font-normal"
       >
-        <NavLink onClick={navLinkCLick} className="flex items-center">
+        <NavLink
+          onClick={navLinkCLick}
+          className="flex items-center font-semibold text-blue-800 text-2xl"
+        >
           Payment
         </NavLink>
       </Typography>
@@ -70,12 +78,12 @@ export default function NavBar() {
 
   return (
     <>
-      <Navbar className="sticky inset-0 z-10 h-max max-w-full bg-teal-200 rounded-none py-2 px-4 lg:px-8 lg:py-4">
+      <Navbar className="sticky inset-0 z-10 h-max max-w-full bg-teal-100 rounded-none py-2 px-4 lg:px-8 lg:py-4">
         <div className="flex items-center justify-between">
           <Typography
             as="a"
             color="green"
-            className="mr-4 cursor-pointer py-1.5 font-medium text-4xl text-blue-800"
+            className="mr-4 cursor-pointer py-1.5 font-semibold text-5xl text-blue-800"
           >
             The Kitchen
           </Typography>
@@ -100,7 +108,7 @@ export default function NavBar() {
                   fill="none"
                   className="h-6 w-6"
                   viewBox="0 0 24 24"
-                  stroke="green"
+                  stroke="blue"
                   strokeWidth={2}
                 >
                   <path
@@ -114,7 +122,7 @@ export default function NavBar() {
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-6 w-6"
                   fill="none"
-                  stroke="green"
+                  stroke="blue"
                   strokeWidth={2}
                 >
                   <path
