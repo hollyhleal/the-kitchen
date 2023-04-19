@@ -31,7 +31,7 @@ export default function NavBar() {
         color="green"
         className="p-1 font-normal"
       >
-        <NavLink onClick={navLinkCLick} className="flex items-center">
+        <NavLink onClick={navLinkCLick} className="flex items-center" to="/">
           Home
         </NavLink>
       </Typography>
@@ -70,14 +70,14 @@ export default function NavBar() {
 
   return (
     <>
-      <Navbar className="sticky inset-0 z-10 h-max max-w-full bg-blue-gray-900 rounded-none py-2 px-4 lg:px-8 lg:py-4">
+      <Navbar className="sticky inset-0 z-10 h-max max-w-full bg-teal-200 rounded-none py-2 px-4 lg:px-8 lg:py-4">
         <div className="flex items-center justify-between">
           <Typography
             as="a"
             color="green"
-            className="mr-4 cursor-pointer py-1.5 font-medium"
+            className="mr-4 cursor-pointer py-1.5 font-medium text-4xl text-blue-800"
           >
-            Material Tailwind
+            The Kitchen
           </Typography>
           <div className="flex items-center gap-4">
             <div className="mr-4 hidden lg:block">{navList}</div>
@@ -86,7 +86,7 @@ export default function NavBar() {
               size="sm"
               className="hidden lg:inline-block"
             >
-              <span>Buy Now</span>
+              <span>Login / Sign up </span>
             </Button>
             <IconButton
               variant="text"
@@ -130,7 +130,7 @@ export default function NavBar() {
         <MobileNav open={openNav}>
           {navList}
           <Button variant="gradient" size="sm" fullWidth className="mb-2">
-            <span>Buy Now</span>
+            <span>Login / Sign up</span>
           </Button>
         </MobileNav>
       </Navbar>
