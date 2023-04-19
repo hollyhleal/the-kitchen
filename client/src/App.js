@@ -7,6 +7,7 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home/Home'
 
 //import pages 
 
@@ -25,12 +26,13 @@ function App() {
     return (
         // <ApolloProvider client={client}>
         <Router> 
-            <>
+            <Routes>
+                <Route path="/" element={<Home />} />
             
             
             
             
-            </>
+            </Routes>
 
 
 
