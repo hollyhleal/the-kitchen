@@ -12,21 +12,19 @@ function Profile() {
       <div class="grid grid-rows-3 grid-flow-col gap-4">
         {/* left-hand side column for profile photo/bio */}
         <div class="row-span-3">
-          <h2>Welcome back, {user}!</h2>
+          <h2>Welcome back, Name!</h2>
           <Card className="w-96">
             <CardHeader floated={false} className="h-80">
-              <img src={image} alt="profile-picture" />
+              <img src="" alt="profile-picture" />
             </CardHeader>
             <CardBody className="text-center">
               <Typography variant="h4" color="blue-gray" className="mb-2">
-                {user}
+                Name
               </Typography>
               <Typography color="blue" className="font-medium" textGradient>
-                {Level}
+                Level
               </Typography>
-              <Typography className="font-medium">
-                Member Since: {Year}
-              </Typography>
+              <Typography className="font-medium">Member Since:</Typography>
             </CardBody>
           </Card>
         </div>
