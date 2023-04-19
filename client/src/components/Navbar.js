@@ -90,6 +90,7 @@ export default function NavBar() {
           <div className="flex items-center gap-4">
             <div className="mr-4 hidden lg:block">{navList}</div>
             <Button
+              color="red"
               variant="gradient"
               size="sm"
               className="hidden lg:inline-block"
@@ -137,7 +138,13 @@ export default function NavBar() {
         </div>
         <MobileNav open={openNav}>
           {navList}
-          <Button variant="gradient" size="sm" fullWidth className="mb-2">
+          <Button
+            variant="gradient"
+            color="red"
+            size="sm"
+            fullWidth
+            className="mb-2"
+          >
             <span>Login / Sign up</span>
           </Button>
         </MobileNav>
