@@ -14,7 +14,7 @@ import { setContext } from "@apollo/client/link/context";
 //import pages
 
 import Profile from "./pages/Profile/Profile";
-import Booking from "./pages/Booking";
+import Booking from "./pages/Booking/Booking";
 // import Page from ''
 // import Page from ''
 // import Page from ''
