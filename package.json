@@ -13,7 +13,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@material-tailwind/react": "^1.4.2",
     "concurrently": "^8.0.1"
   }
 }
