@@ -85,23 +85,32 @@ const resolvers = {
 
         return team;
       }
-      throw new AuthenticationError("You need to be logged in!");
+      throw new AuthenticationError("You need to be logged in.");
     },
-    //     addReservation: async(parent { reservationId, playerId, courtId }, context) => {
-    // if (context.player) {
-    //     const reservation = await Reservation.create({
-    //         reservationId
-    //     });
-    //     await Court.findOneAndUpdate(
-    //         { _id: context.court._id },
-    //         { $addToSet: { reservations: reservation._id } }
-    //     );
+    addReservation: async (
+      parent,
+      { reservationId, playerId, courtId },
+      context
+    ) => {
+      if (context.player && context.court) {
+        const reservation = await Reservation.create({
+          reservationId,
+        });
+        await Court.findOneAndUpdate(
+          { _id: context.court._id },
+          { $addToSet: { reservations: reservation._id } }
+        );
 
-    //     await Player.findOneAndUpdate(
-    //         { _id: context }
-    //     );
-    // }
-    // }
+        await Player.findOneAndUpdate(
+          { _id: context.player._id },
+          { $addToSet: { reservations: reservation._id } },
+          { new: true }
+        );
+
+        return reservation;
+      }
+      throw new AuthenticationError("You need to be logged in.");
+    },
   },
 };
 
