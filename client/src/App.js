@@ -1,14 +1,15 @@
-import React from 'react';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import NavBar from "./components/Navbar";
 import {
-    ApolloClient,
-    InMemoryCache,
-    ApolloProvider,
-    createHttpLink,
-} from '@apollo/client';
-import { setContext } from '@apollo/client/link/context';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink,
+} from "@apollo/client";
+import { setContext } from "@apollo/client/link/context";
 
-//import pages 
+//import pages
 
 // import Page from ''
 // import Page from ''
@@ -17,34 +18,15 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 //middleware
 
-
-
-
 //function app
 function App() {
-    return (
-        <ApolloProvider client={client}>
-        <Router> 
-            <>
-            
-            
-            
-            
-            </>
-
-
-
-
-
-        </Router>
-        </ApolloProvider>
-
-
-
-
-    )
+  return (
+    <>
+      <Router>
+        <NavBar />
+      </Router>
+    </>
+  );
 }
 
 export default App;
-
-
