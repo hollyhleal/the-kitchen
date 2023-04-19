@@ -19,6 +19,7 @@ const typeDefs = gql`
   type Court {
     team1: Team
     team2: Team
+    reservations: [Reservation]
   }
 
   type Reservation {
