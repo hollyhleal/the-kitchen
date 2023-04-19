@@ -1,8 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from "./components/Navbar";
-import Home from "./pages/Home/Home";
-import Footer from "./components/Footer";
 import {
   ApolloClient,
   InMemoryCache,
@@ -10,6 +8,9 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home/Home";
+import Footer from "./components/Footer";
 
 //import pages
 
@@ -28,6 +29,7 @@ function App() {
     <Router>
       <NavBar />
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/booking" element={<Booking />} />
       </Routes>
