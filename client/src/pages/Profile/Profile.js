@@ -1,10 +1,10 @@
-import {
-  Button,
-  Card,
-  CardHeader,
-  CardBody,
-  Typography,
-} from "@material-tailwind/react";
+// import {
+//   Button,
+//   Card,
+//   CardHeader,
+//   CardBody,
+//   Typography,
+// } from "@material-tailwind/react";
 
 function Profile() {
   return (
@@ -29,9 +29,9 @@ function Profile() {
           </Card>
         </div>
 
-        <div class="col-span-2">
-          <Button size="lg">Book a Court</Button>
-        </div>
+//         <div class="col-span-2">
+//           <Button size="lg">Book a Court</Button>
+//         </div>
 
         <div class="row-span-2 col-span-2">
           <h3>Upcoming Reservations</h3>
