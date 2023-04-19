@@ -23,7 +23,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 //function app
 function App() {
     return (
-        <ApolloProvider client={client}>
+        // <ApolloProvider client={client}>
         <Router> 
             <>
             
@@ -37,7 +37,7 @@ function App() {
 
 
         </Router>
-        </ApolloProvider>
+        // </ApolloProvider>
 
 
 
