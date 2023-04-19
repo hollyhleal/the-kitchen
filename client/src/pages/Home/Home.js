@@ -6,7 +6,7 @@ export default function Home () {
     <>
         <div className="container mx-auto grid grid-cols-1 place-content-center">
             <div className="place-self-center">
-                <div className="bg-cover bg-center" style={{backgroundImage: url(Paddle)}}></div>
+                <div className="bg-cover bg-center"></div>
             </div>
         </div>
         <div className="container mx-auto grid grid-cols-3">
