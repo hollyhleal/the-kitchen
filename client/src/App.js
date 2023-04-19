@@ -10,10 +10,12 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
+import Footer from "./components/Footer";
 
 //import pages
 
-import Profile from "../src/pages/Profile/Profile";
+import Profile from "./pages/Profile/Profile";
+import Booking from "./pages/Booking";
 // import Page from ''
 // import Page from ''
 // import Page from ''
@@ -27,7 +29,8 @@ function App() {
     <Router>
       <NavBar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/booking" element={<Booking />} />
       </Routes>
       <Footer />
     </Router>
