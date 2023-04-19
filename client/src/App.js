@@ -7,6 +7,7 @@ import {
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Footer from "./components/Footer";
 
 //import pages
 
@@ -20,11 +21,13 @@ import Profile from "../src/pages/Profile/Profile";
 //function app
 function App() {
   return (
-    <ApolloProvider client={client}>
+    // <ApolloProvider client={client}>
       <Router>
         <></>
+
+        <Footer />
       </Router>
-    </ApolloProvider>
+    // </ApolloProvider>
   );
 }
 
