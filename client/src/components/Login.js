@@ -1,45 +1,57 @@
-// import React, { useState } from "react";
+import React, { useState } from 'react';
+import { useMutation } from '@apollo/client';
+import { LOGIN_USER } from '../utils/mutations';
+import Auth from '../utils/auth';
 
-// function LoginForm(props) {
-//   const [username, setUsername] = useState("");
-//   const [password, setPassword] = useState("");
-//     const [isLoggedIn, setIsLoggedIn] = useState(false);
+const Login = () => {
+    const [userFormData, setUserFormData] = useState({ email: '', password: '' });
+    const [validated] = useState(false);
+    const [showAlert, setShowAlert] = useState(false);
+
+    // mutation for login of user 
+    const [loginUser] = useMutation(LOGIN_USER);
+
+    const handleInputChange = (event) => {
+        const { name, value } = event.target;
+        setUserFormData({ ...userFormData, [name]: value });
+    };
+
+    const handleFormSubmit = async (event) => {
+        event.preventDefault();
+        // check if form has everything (as per react-bootstrap docs)
+        const form = event.currentTarget;
+        if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+        };
+
+        try {
+            const { data } = await loginUser({ variables: { ...userFormData } });
+
+            Auth.login(data.login.token);
+            console.log('FORM SUBMIT', data);
+        } catch (err) {
+            console.error(err);
+            setShowAlert(true);
+        };
+
+        setUserFormData({
+            username: '',
+            email: '',
+            password: '',
+        });
+    };
+
+    return (
+
+
+
+        <>
+        
+        
+        </>
+    )
+
     
-//     const handleUsernameChange = (event) => {
-//         setUsername(event.target.value);
-//     }
-
-//     const handlePasswordChange = (event) => {
-//         setPassword(event.target.value);
-//     }
-
-//   function handleSubmit(event) {
-//     event.preventDefault();
-
-//     // check the username and password
-//     if (username === "myusername" && password === "mypassword") {
-//       // if the username and password are correct, set the isLoggedIn state to true
-//       setIsLoggedIn(true);
-//     } else {
-//       // if the username and password are incorrect, display an error message or perform some other action
-//       console.log("Invalid username or password");
-
-//       // call the onLoginSuccess prop to trigger the button on another page component
-//       props.onLoginSuccess();
-//     }
-
-//     return (
-//       <>
-//         {!isLoggedIn ? (
-//           <LoginForm onLogin={handleLogin} />
-//         ) : (
-//           <Button onClick={props.onButtonClick} disabled={!isLoggedIn}>
-//             Click me!
-//           </Button>
-//         )}
-//       </>
-//     );
-//   }
-// }
-
-// export default LoginForm;
+}
+export default Login;
