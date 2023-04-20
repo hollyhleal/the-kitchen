@@ -8,7 +8,7 @@ const FRONTEND_DOMAIN = "http://localhost:3001";
 const resolvers = {
   Query: {
     players: async () => {
-      return Player.find().populate("players");
+      return Player.find()
     },
     player: async (parent, { name }) => {
       return Player.findOne({ name }).populate("players");
@@ -41,23 +41,23 @@ const resolvers = {
       }
     },
 
-    CreateCheckoutSession: async () => {
-      const session = await stripe.checkout.sessions.create({
-        line_items: [
-          {
-            price: "price_1MyzDZAns49T1zFVAz7LwBS5",
-            quantity: 1,
-          },
-        ],
-        mode: "payment",
-        success_url: FRONTEND_DOMAIN + "/success",
-        cancel_url: FRONTEND_DOMAIN + "/cancel",
-      });
+    // CreateCheckoutSession: async () => {
+    //   const session = await stripe.checkout.sessions.create({
+    //     line_items: [
+    //       {
+    //         price: "price_1MyzDZAns49T1zFVAz7LwBS5",
+    //         quantity: 1,
+    //       },
+    //     ],
+    //     mode: "payment",
+    //     success_url: FRONTEND_DOMAIN + "/success",
+    //     cancel_url: FRONTEND_DOMAIN + "/cancel",
+    //   });
 
-      return JSON.stringify({
-        url: session.url,
-      });
-    },
+    //   return JSON.stringify({
+    //     url: session.url,
+    //   });
+    // },
   },
 
   // logic for mutation

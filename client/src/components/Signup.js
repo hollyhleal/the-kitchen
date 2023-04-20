@@ -8,6 +8,7 @@ const Signup = () => {
     const [userFormData, setUserFormData] = useState({ email: '', password: '' });
     const [validated] = useState(false);
     const [showAlert, setShowAlert] = useState(false);
+    const [showModal, setShowModal] = useState(false)
 
     // const [createUser] = useMutation(ADD_PLAYER);
 
@@ -39,31 +40,77 @@ const Signup = () => {
     
     return (
         <>
-            <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-                <div className="bg-white p-8 rounded-lg shadow-md w-full md:w-1/3">
-                    <h2 className="text-2xl font-bold mb-4">Sign up</h2>
-                    {showAlert && (
-                        <div className="bg-red-500 text-white p-2 rounded mb-4">
-                            Something went wrong with your signup!
+            <button
+                type="button"
+                onClick={() => setShowModal(true)}
+                className="bg-blue-500 text-white font-semibold py-2 px-4 rounded"
+            >
+                Sign Up
+            </button>
+            {showModal && (
+                <div className="fixed z-10 inset-0 overflow-y-auto">
+                    <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+                        <div className="fixed inset-0 transition-opacity" aria-hidden="true">
+                            <div className="absolute inset-0 bg-gray-500 opacity-75" onClick={() => setShowModal(false)}></div>
                         </div>
-                    )}
-                    <form onSubmit={handleFormSubmit} noValidate className={!validated && 'was-validated'}>
-                        <div className="mb-4">
-                            <label htmlFor="email" className="block text-sm mb-1">Email</label>
-                            <input type="email" id="email" name="email" value={userFormData.email} onChange={handleInputChange} required className="w-full px-3 py-2 border rounded-md text-sm" />
-                            <div className="invalid-feedback">Please provide a valid email.</div>
+                        <div className="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6">
+                            <div>
+                                {showAlert && (
+                                    <div className="bg-red-500 text-white px-3 py-3 rounded mb-4">
+                                        Something went wrong with your signup!
+                                    </div>
+                                )}
+                                <h3 className="text-lg leading-6 font-medium text-gray-900 mb-3">Sign Up</h3>
+                                <form onSubmit={handleFormSubmit}>
+                                    <div className="mb-4">
+                                        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">Email</label>
+                                        <input
+                                            type="email"
+                                            name="email"
+                                            onChange={handleInputChange}
+                                            value={userFormData.email}
+                                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                            id="email"
+                                            placeholder="Enter your email"
+                                            required
+                                        />
+                                    </div>
+                                    <div className="mb-6">
+                                        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">Password</label>
+                                        <input
+                                            type="password"
+                                            name="password"
+                                            onChange={handleInputChange}
+                                            value={userFormData.password}
+                                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                            id="password"
+                                            placeholder="Enter your password"
+                                            minLength="5"
+                                            required
+                                        />
+                                    </div>
+                                    <div className="flex items-center justify-between">
+                                        <button
+                                            type="submit"
+                                            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                                        >
+                                            Sign Up
+                                        </button>
+                                        <button
+                                            type="button"
+                                            onClick={() => setShowModal(false)}
+                                            className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded"
+                                        >
+                                            Cancel
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
-                        <div className="mb-4">
-                            <label htmlFor="password" className="block text-sm mb-1">Password</label>
-                            <input type="password" id="password" name="password" value={userFormData.password} onChange={handleInputChange} required className="w-full px-3 py-2 border rounded-md text-sm" />
-                            <div className="invalid-feedback">Please provide a valid password.</div>
-                        </div>
-                        <button type="submit" className="bg-blue-500 text-white font-bold py-2 px-4 rounded w-full">Sign up</button>
-                    </form>
+                    </div>
                 </div>
-            </div>
+            )}
         </>
-)
-
+    )
 };
 export default Signup;
