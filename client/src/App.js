@@ -12,6 +12,8 @@ import { setContext } from "@apollo/client/link/context";
 
 import Home from "./pages/Home/Home";
 import Footer from "./components/Footer";
+import Signup  from "./components/Signup";
+import Login from "./components/Login";
 
 //import pages
 
@@ -36,6 +38,8 @@ function App() {
         <Route path="/booking" element={<Booking />} />
         <Route path="/payment" element={<Payment />} />
       </Routes>
+      <Login />    
+      <Signup />
       <Footer />
     </Router>
     // // </ApolloProvider>

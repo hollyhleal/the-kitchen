@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { useMutation } from "@apollo/client";
-import { ADD_USER } from "../utils/mutations";
-import Auth from "../utils/auth";
+// import { useMutation } from "@apollo/client";
+import { ADD_PLAYER } from "../utils/mutations";
+import Auth from "../utils/Auth";
 
 
 const Signup = () => {
@@ -9,7 +9,7 @@ const Signup = () => {
     const [validated] = useState(false);
     const [showAlert, setShowAlert] = useState(false);
 
-    const [createUser] = useMutation(ADD_USER);
+    // const [createUser] = useMutation(ADD_PLAYER);
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -24,8 +24,8 @@ const Signup = () => {
             event.stopPropagation();
         };
         try {
-            const { data } = await createUser({ variables: { ...userFormData } });
-            Auth.login(data.addUser.token);
+            // const { data } = await createUser({ variables: { ...userFormData } });
+            // Auth.login(data.addUser.token);
         } catch (err) {
             console.error(err);
             setShowAlert(true);
