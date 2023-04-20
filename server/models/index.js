@@ -1,6 +1,5 @@
-const Player = require('./Player');
-const Team = require('./Team');
-const Court = require('./Court');
-const Reservation = require('./Reservation');
+const Player = require("./Player");
+const Court = require("./Court");
+const Reservation = require("./Reservation");
 
-module.exports = { Player, Team, Court, Reservation };
+module.exports = { Player, Court, Reservation };
