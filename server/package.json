@@ -12,6 +12,7 @@
     "graphql": "^16.6.0",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.0.4",
+    "stripe": "^12.1.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
