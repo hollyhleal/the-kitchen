@@ -9,12 +9,12 @@ import {
 function Profile() {
   return (
     <>
-      <div className="container mx-auto">
-        <div class="grid grid-rows-3 grid-flow-col gap-4">
+      <div className="flex flex-row">
+        {/* <div class=""> */}
           {/* left-hand side column for profile photo/bio */}
-          <div className="row-span-3 md:row-span-4 mx-auto text-center">
+          <div className="basis-1/2 place-self-center text-center my-8">
             <Typography variant="h3">Welcome back, Name!</Typography>
-            <Card className="w-96">
+            <Card className="w-96 mx-auto">
               <CardHeader floated={false} className="h-80">
                 <img src="" alt="profile-picture" />
               </CardHeader>
@@ -30,14 +30,20 @@ function Profile() {
             </Card>
           </div>
 
-          <div className="row-span-2 col-span-2">
-            <Button size="lg">Book a Court</Button>
-          </div>
+          <div className="basis-1/2 text-center my-8">
+            <Button className="my-11" size="lg">Book a Court</Button>
 
-          <div class="row-span-2 col-span-2">
+
+
             <Typography variant="h4">Upcoming Reservations</Typography>
+            <div>
+            <Typography variant="h6">Date: 5/5/2023</Typography>
+            <Typography variant="h6">Time: 12pm</Typography>
+            <Typography variant="h6">Court: 4</Typography>
+            <Typography variant="h6">Session: Singles</Typography>
+            </div>
           </div>
-        </div>
+        {/* </div> */}
       </div>
     </>
   );
