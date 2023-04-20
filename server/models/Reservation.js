@@ -16,6 +16,14 @@ const reservationSchema = new Schema({
     ref: "Player",
     required: true,
   },
+  player3: {
+    type: Schema.Types.ObjectId,
+    ref: "Player",
+  },
+  player4: {
+    type: Schema.Types.ObjectId,
+    ref: "Player",
+  },
   price: {
     type: Number,
     required: true,
