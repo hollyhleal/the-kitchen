@@ -2,6 +2,7 @@ const { AuthenticationError } = require("apollo-server-express");
 const { Player, Team, Court, Reservation } = require("../models");
 const { signToken } = require("../utils/auth");
 const stripe = require("stripe")("sk_test_4eC39HqLyjWDarjtT1zdp7dc");
+const FRONTEND_DOMAIN = "http://localhost:3001";
 
 //logic for query
 const resolvers = {
@@ -29,30 +30,33 @@ const resolvers = {
       );
     },
 
-    checkout: async (parent, args, context) => {
-      const url = new URL(context.headers.referer).origin;
-      const reservation = new Reservation({ court: args.court });
-      const line_items = [];
+    reservation: async (parent, { _id }, context) => {
+      if (context.player) {
+        const player = await Player.findById(context.player._id).populate({
+          path: "reservations.courts",
+          populate: "reservations",
+        });
 
-      const price = await stripe.prices.create({
-        reservation: reservation._id,
-        unit_amount: reservation[i].price * 100,
-        currency: "usd",
-      });
+        return user.reservations.id(_id);
+      }
+    },
 
-      line_items.push({
-        price: price._id,
-        quantity: 1,
-      });
-
+    CreateCheckoutSession: async () => {
       const session = await stripe.checkout.sessions.create({
-        payment_method_types: ["card"],
-        line_items,
+        line_items: [
+          {
+            price: "price_1MyzDZAns49T1zFVAz7LwBS5",
+            quantity: 1,
+          },
+        ],
         mode: "payment",
-        success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
-        cancel_url: `${url}/`,
+        success_url: FRONTEND_DOMAIN + "/success",
+        cancel_url: FRONTEND_DOMAIN + "/cancel",
       });
-      return { session: session.id };
+
+      return JSON.stringify({
+        url: session.url,
+      });
     },
   },
 
@@ -142,3 +146,34 @@ const resolvers = {
 };
 
 module.exports = resolvers;
+
+// CreateCheckoutSession: async (parent, args, context) => {
+//       const url = new URL(context.headers.referer).origin;
+//       const reservation = new Reservation({ court: args.court });
+//       const line_items = [
+//         {
+//           price: "price_1MyzDZAns49T1zFVAz7LwBS5",
+//           quantity: 1
+//         },
+//       ];
+
+//       const price = await stripe.prices.create({
+//         reservation: reservation._id,
+//         unit_amount: reservation[i].price * 100,
+//         currency: "usd",
+//       });
+
+//       line_items.push({
+//         price: price._id,
+//         quantity: 1,
+//       });
+
+//       const session = await stripe.checkout.sessions.create({
+//         payment_method_types: ["card"],
+//         line_items,
+//         mode: "payment",
+//         success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
+//         cancel_url: `${url}/`,
+//       });
+//       return { session: session.id };
+//     },

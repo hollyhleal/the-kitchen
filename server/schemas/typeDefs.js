@@ -38,6 +38,7 @@ const typeDefs = gql`
     players: [Player]
     courts: [Court]
     me: Player
+    createCheckoutSession: String # '{url: STRIPEURL.com}'
   }
 
   type Mutation {
