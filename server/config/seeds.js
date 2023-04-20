@@ -1,5 +1,5 @@
 const db = require("./connection");
-const { Player} = require("../models");
+const { Player, Reservation, Court} = require("../models");
 
 db.once("open", async () => {
     try {
@@ -11,8 +11,19 @@ db.once("open", async () => {
                 email: "email1@email.com",
                 password: "testpassword1",
                 level: "beginner",
+                Reservation: {
+                    court: {
+                        name: "doubles"
+                    },
+                    player: {
+                        name: "bob"
+                    },
+                    time: 8,
+                    price: 4.99
+                }
             },
             {
+    
                 name: "steve",
                 email: "email2@email.com",
                 password: "testpassword2",
@@ -22,19 +33,34 @@ db.once("open", async () => {
                 name: "john",
                 email: "email3@email.com",
                 password: "testpassword3",
-                level: "advanced",
+                level: "beginner",
+                reservation: {
+                    court: {
+                        name: "Court A"
+                    }
+                }
             },
             {
                 name: "aldo",
                 email: "email4@email.com",
                 password: "testpassword4",
                 level: "beginner",
+                reservation: {
+                    court: {
+                        name: "Court A"
+                    }
+                }
             },
             {
                 name: "travis",
                 email: "email5@email.com",
                 password: "testpassword5",
-                level: "expert",
+                level: "beginner",
+                reservation: {
+                    court: {
+                        name: "Court A"
+                    }
+                }
             },
         ]);
         
