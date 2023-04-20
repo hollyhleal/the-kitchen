@@ -8,7 +8,7 @@ import {
   Option,
 } from "@material-tailwind/react";
 import Datepicker from "react-tailwindcss-datepicker";
-import { courts } from '../../seeds/CourtData';
+import { courts } from "../../seeds/CourtData";
 
 export default function Booking() {
   const [value, setValue] = useState({
@@ -77,15 +77,15 @@ export default function Booking() {
 
       <div className="container mx-auto">
         <div className="flex flex-wrap mx-auto justify-center text-center">
-          { courts.map(({name, type, image}) => (
+          {courts.map(({ name, type, image }) => (
             <div>
-            <img src={image} alt="court"></img>
-            <Typography variant="h4">{name}</Typography>
-            <Typography variant="h5">{type}</Typography>
-            <p>Available Slots: </p>
-            <p>Booked Slots: </p>
-            <Button size="md">Book {name}</Button>
-          </div>
+              <img src={image} alt="court"></img>
+              <Typography variant="h4">{name}</Typography>
+              <Typography variant="h5">{type}</Typography>
+              <p>Available Slots: </p>
+              <p>Booked Slots: </p>
+              <Button size="md">Book {name}</Button>
+            </div>
           ))}
         </div>
       </div>
