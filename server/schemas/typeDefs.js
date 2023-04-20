@@ -35,10 +35,12 @@ const typeDefs = gql`
   }
 
   type Query {
+    player: [Player]
     players: [Player]
     courts: [Court]
+    court: [Court]
+    reservation: [Reservation]
     me: Player
-    createCheckoutSession: String # '{url: STRIPEURL.com}'
   }
 
   type Mutation {
