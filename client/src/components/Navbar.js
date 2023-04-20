@@ -43,6 +43,7 @@ export default function NavBar() {
         <NavLink
           onClick={navLinkCLick}
           className="flex items-center font-semibold text-blue-800 text-2xl"
+          to="/profile"
         >
           Profile
         </NavLink>
@@ -56,6 +57,7 @@ export default function NavBar() {
         <NavLink
           onClick={navLinkCLick}
           className="flex items-center font-semibold text-blue-800 text-2xl"
+          to="/booking"
         >
           Booking
         </NavLink>
@@ -69,6 +71,7 @@ export default function NavBar() {
         <NavLink
           onClick={navLinkCLick}
           className="flex items-center font-semibold text-blue-800 text-2xl"
+          to="/payment"
         >
           Payment
         </NavLink>
@@ -149,46 +152,6 @@ export default function NavBar() {
           </Button>
         </MobileNav>
       </Navbar>
-      <div className="mx-auto max-w-screen-md py-12">
-        <Card className="mb-12 overflow-hidden">
-          <img
-            alt="nature"
-            className="h-[32rem] w-full object-cover object-center"
-            src="https://images.unsplash.com/photo-1659318006095-4d44845f3a1b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2110&q=80"
-          />
-        </Card>
-        <Typography variant="h2" color="green" className="mb-2">
-          Test
-        </Typography>
-        <Typography color="gray" className="font-normal">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Enim
-            facilisis gravida neque convallis a cras. Proin nibh nisl
-            condimentum id venenatis a. Ipsum dolor sit amet consectetur
-            adipiscing elit. Leo urna molestie at elementum eu facilisis sed
-            odio morbi. Cum sociis natoque penatibus et. Sem viverra aliquet
-            eget sit amet tellus cras adipiscing enim. Vestibulum lorem sed
-            risus ultricies tristique. Ultrices eros in cursus turpis massa
-            tincidunt. Ipsum suspendisse ultrices gravida dictum fusce ut
-            placerat orci nulla. Nisi scelerisque eu ultrices vitae auctor eu
-            augue ut lectus. At elementum eu facilisis sed odio morbi. Est
-            placerat in egestas erat imperdiet sed. Suspendisse ultrices gravida
-            dictum fusce ut placerat orci nulla pellentesque. Pellentesque
-            habitant morbi tristique senectus et netus. Orci sagittis eu
-            volutpat odio facilisis mauris sit amet. Nisl nisi scelerisque eu
-            ultrices. Vitae auctor eu augue ut lectus. Massa enim nec dui nunc.
-            In arcu cursus euismod quis. Ullamcorper eget nulla facilisi etiam
-            dignissim diam. Neque viverra justo nec ultrices. Ac turpis egestas
-            maecenas pharetra convallis posuere. Etiam non quam lacus
-            suspendisse faucibus interdum posuere. Risus feugiat in ante metus
-            dictum at. Arcu bibendum at varius vel pharetra vel turpis. Sed
-            blandit libero volutpat sed cras ornare. Pretium quam vulputate
-            dignissim suspendisse in. Sed nisi lacus sed viverra tellus in hac
-            habitasse.
-          </p>
-        </Typography>
-      </div>
     </>
   );
 }

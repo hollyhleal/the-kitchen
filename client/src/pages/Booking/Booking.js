@@ -22,7 +22,7 @@ export default function Booking() {
   };
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto content">
       <Card color="transparent" shadow={false}>
         <Typography variant="h4" color="blue-gray">
           Reserve

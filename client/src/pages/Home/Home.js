@@ -19,7 +19,7 @@ export default function Home() {
   return (
     <>
       <div
-        className=" bg-opacity-100 bg-cover bg-center h-96 bg-no-repeat"
+        className=" bg-opacity-100 bg-cover bg-center h-96 bg-no-repeat content"
         style={{ backgroundImage: `url(${Paddle})` }}
       ></div>
       <div className="container mx-auto grid grid-cols-3 h-96">
