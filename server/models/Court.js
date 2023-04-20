@@ -1,15 +1,23 @@
 const { Schema, model } = require("mongoose");
 
 const courtSchema = new Schema({
-  team1: {
+  player1: {
     type: Schema.Types.ObjectId,
-    ref: "Team",
+    ref: "Player",
     required: true,
   },
-  team2: {
+  player2: {
     type: Schema.Types.ObjectId,
-    ref: "Team",
+    ref: "Player",
     required: true,
+  },
+  player3: {
+    type: Schema.Types.ObjectId,
+    ref: "Player",
+  },
+  player4: {
+    type: Schema.Types.ObjectId,
+    ref: "Player",
   },
   reservations: [
     {
