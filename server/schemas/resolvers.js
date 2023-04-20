@@ -1,6 +1,7 @@
 const { AuthenticationError } = require("apollo-server-express");
 const { Player, Team, Court, Reservation } = require("../models");
 const { signToken } = require("../utils/auth");
+const stripe = require("stripe")("sk_test_4eC39HqLyjWDarjtT1zdp7dc");
 
 //logic for query
 const resolvers = {
@@ -26,6 +27,32 @@ const resolvers = {
       throw new AuthenticationError(
         "You need to be logged in to see reservations."
       );
+    },
+
+    checkout: async (parent, args, context) => {
+      const url = new URL(context.headers.referer).origin;
+      const reservation = new Reservation({ court: args.court });
+      const line_items = [];
+
+      const price = await stripe.prices.create({
+        reservation: reservation._id,
+        unit_amount: reservation[i].price * 100,
+        currency: "usd",
+      });
+
+      line_items.push({
+        price: price._id,
+        quantity: 1,
+      });
+
+      const session = await stripe.checkout.sessions.create({
+        payment_method_types: ["card"],
+        line_items,
+        mode: "payment",
+        success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `${url}/`,
+      });
+      return { session: session.id };
     },
   },
 
