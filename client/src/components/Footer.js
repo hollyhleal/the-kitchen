@@ -8,7 +8,7 @@ function Footer() {
   return (
       <div className="footer" id="footer">
           <div className="main">
-      <form className="bg-white rounded-lg p-4" onSubmit={handleSubmit}>
+      {/* <form className="bg-white rounded-lg p-4" onSubmit={handleSubmit}>
         <button
           type="submit"
           className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg"
@@ -24,7 +24,7 @@ function Footer() {
           className="w-hlf py-2 px-3 border border-gray-400 rounded-lg mb-4"
         />
               </form>
-             
+              */}
 
       <footer className="bg-gray-900 text-white py-4">
         <div className="container mx-auto text-center">
