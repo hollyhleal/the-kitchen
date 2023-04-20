@@ -8,6 +8,7 @@ import {
   IconButton,
   Card,
 } from "@material-tailwind/react";
+import Signup from "./Signup";
 
 export default function NavBar() {
   const [openNav, setOpenNav] = React.useState(false);
@@ -98,8 +99,9 @@ export default function NavBar() {
               size="sm"
               className="hidden lg:inline-block"
             >
-              <span>Login / Sign up </span>
+              <span>Login </span> 
             </Button>
+            <Signup />
             <IconButton
               variant="text"
               className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
