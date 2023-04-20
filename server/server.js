@@ -29,7 +29,7 @@ app.post("/checkout", async (req, res) => {
     line_items: [
       {
         // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
-        price: "{{pr_5}}",
+        price: "{{pr_4.99}}",
         quantity: 1,
       },
     ],

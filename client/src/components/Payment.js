@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { PaymentElement } from "@stripe/react-stripe-js";
 
+const stripePayments = loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
+
 const ProductDisplay = () => {
   return (
     <section className="content">
