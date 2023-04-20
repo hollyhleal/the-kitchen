@@ -21,6 +21,7 @@ export default function Home () {
     return(
         <>
             <div className=" bg-opacity-100 bg-cover bg-center h-96 bg-no-repeat" style={{ backgroundImage: `url(${Paddle})` }}>
+            <h2 class="text-3xl text-white">This is Overlay Image</h2>
             </div>
         <div className="container mx-auto grid grid-cols-3 h-96">
             <div className="place-self-center">
