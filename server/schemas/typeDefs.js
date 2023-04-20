@@ -26,6 +26,7 @@ const typeDefs = gql`
     court: Court
     player1: Player
     player2: Player
+    price: Int
   }
 
   type Auth {

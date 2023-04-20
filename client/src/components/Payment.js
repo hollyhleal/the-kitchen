@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { PaymentElement } from "@stripe/react-stripe-js";
 
 const ProductDisplay = () => {
   return (
-    <section>
+    <section className="content">
       <div className="product">
         <img
           src="https://i.imgur.com/EHyR2nP.png"
@@ -13,7 +14,7 @@ const ProductDisplay = () => {
           <h5>$20.00</h5>
         </div>
       </div>
-      <form action="/create-checkout-session" method="POST">
+      <form action="/checkout" method="POST">
         <button type="submit">Checkout</button>
       </form>
     </section>
