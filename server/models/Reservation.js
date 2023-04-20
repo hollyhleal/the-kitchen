@@ -6,24 +6,17 @@ const reservationSchema = new Schema({
     ref: "Court",
     required: true,
   },
-  player1: {
+  player: {
     type: Schema.Types.ObjectId,
     ref: "Player",
     required: true,
   },
-  player2: {
-    type: Schema.Types.ObjectId,
-    ref: "Player",
+
+  time: {
+    type: Number,
     required: true,
   },
-  player3: {
-    type: Schema.Types.ObjectId,
-    ref: "Player",
-  },
-  player4: {
-    type: Schema.Types.ObjectId,
-    ref: "Player",
-  },
+
   price: {
     type: Number,
     required: true,

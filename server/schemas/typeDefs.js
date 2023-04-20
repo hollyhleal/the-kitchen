@@ -11,20 +11,20 @@ const typeDefs = gql`
   }
 
   type Court {
-    player1: Player
-    player2: Player
-    player3: Player
-    player4: Player
+    _id: ID
+    name: String!
+    player1: Player!
+    player2: Player!
+    player3: Player!
+    player4: Player!
     reservations: [Reservation]
   }
 
   type Reservation {
-    court: Court
-    player1: Player
-    player2: Player
-    player3: Player
-    player4: Player
-    price: Float
+    court: Court!
+    player: Player!
+    time: Int!
+    price: Float!
   }
 
   type Auth {

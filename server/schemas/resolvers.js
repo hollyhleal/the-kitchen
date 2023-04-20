@@ -1,5 +1,5 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { Player, Team, Court, Reservation } = require("../models");
+const { Player, Court, Reservation } = require("../models");
 const { signToken } = require("../utils/auth");
 const stripe = require("stripe")("sk_test_4eC39HqLyjWDarjtT1zdp7dc");
 const FRONTEND_DOMAIN = "http://localhost:3001";
@@ -103,21 +103,7 @@ const resolvers = {
     addCourt: async (parent, { courtId }) => {
       const court = await Court.create({ courtId });
     },
-    addToTeam: async (parent, { teamId }, context) => {
-      if (context.player) {
-        const team = await Team.create({
-          playerId: context.player._id,
-        });
-
-        await Team.findOneAndUpdate(
-          { _id: teamId },
-          { $addToSet: { players: player._id } }
-        );
-
-        return team;
-      }
-      throw new AuthenticationError("You need to be logged in.");
-    },
+   
     addReservation: async (
       parent,
       { reservationId, playerId, courtId },
