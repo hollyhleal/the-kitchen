@@ -15,7 +15,7 @@ import {
   Checkbox,
 } from "@material-tailwind/react";
 import Signup from "./Signup";
-import Login from "../components/Login";
+// import Login from "../components/Login";
 
 export default function NavBar() {
   const [openNav, setOpenNav] = React.useState(false);
@@ -44,7 +44,7 @@ export default function NavBar() {
       <Typography
         as="li"
         variant="small"
-        color="red"
+        color="black"
         className="p-1 font-normal"
       >
         <NavLink
@@ -111,7 +111,6 @@ export default function NavBar() {
           >
             The Kitchen
           </Typography>
-          <Login />
           <div className="flex items-center gap-4">
             <div className="mr-4 hidden lg:block">{navList}</div>
             <React.Fragment>
@@ -146,7 +145,7 @@ export default function NavBar() {
                       variant="gradient"
                       showModal={showSignupModal}
                       setShowModal={setShowSignupModal}
-                      onClick={Login}
+                      onClick={handleOpen}
                       fullWidth
                     >
                       Sign In
