@@ -2,14 +2,18 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_PLAYER } from "../utils/mutations";
 import Auth from "../utils/Auth";
+import { Redirect } from "react-router-dom"; // Import Redirect
 
 
 const Signup = ({ showModal, setShowModal }) => {
     const [userFormData, setUserFormData] = useState({ name: "", email: "", password: "" });
     const [validated] = useState(false);
     const [showAlert, setShowAlert] = useState(false);
+    const [redirectToProfile, setRedirectToProfile] = useState(false); 
 
     const [createUser] = useMutation(ADD_PLAYER);
+    // const history = useHistory(); // Initialize useHistory
+
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -27,6 +31,7 @@ const Signup = ({ showModal, setShowModal }) => {
         try {
             const { data } = await createUser({ variables: { ...userFormData } });
             Auth.login(data.token);
+            setRedirectToProfile(true); 
         } catch (err) {
             console.error(err);
             setShowAlert(true);
