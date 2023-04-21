@@ -14,6 +14,7 @@ import {
   Input,
   Checkbox,
 } from "@material-tailwind/react";
+import Signup from "./Signup";
 
 export default function NavBar() {
   const [openNav, setOpenNav] = React.useState(false);

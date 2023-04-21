@@ -8,7 +8,7 @@ import {
   Option,
 } from "@material-tailwind/react";
 import Datepicker from "react-tailwindcss-datepicker";
-import CourtImage from "../../images/pickleballcourt.png";
+import { courts } from "../../seeds/CourtData";
 
 export default function Booking() {
   const [value, setValue] = useState({
@@ -77,34 +77,16 @@ export default function Booking() {
 
       <div className="container mx-auto">
         <div className="flex flex-wrap mx-auto justify-center text-center">
-          <div>
-            <img src={CourtImage} alt="court"></img>
-            <Typography variant="h5">Court 1 (Singles)</Typography>
-            <p>Available Slots: </p>
-            <p>Booked Slots: </p>
-            <Button size="md">Book Court 1</Button>
-          </div>
-          <div>
-            <img src={CourtImage} alt="court"></img>
-            <Typography variant="h5">Court 2 (Singles)</Typography>
-            <p>Available Slots: </p>
-            <p>Booked Slots: </p>
-            <Button size="md">Book Court 2</Button>
-          </div>
-          <div>
-            <img src={CourtImage} alt="court"></img>
-            <Typography variant="h5">Court 3 (Doubles)</Typography>
-            <p>Available Slots: </p>
-            <p>Booked Slots: </p>
-            <Button size="md">Book Court 3</Button>
-          </div>
-          <div>
-            <img src={CourtImage} alt="court"></img>
-            <Typography variant="h5">Court 4 (Doubles)</Typography>
-            <p>Available Slots: </p>
-            <p>Booked Slots: </p>
-            <Button size="md">Book Court 4</Button>
-          </div>
+          {courts.map(({ name, type, image }) => (
+            <div>
+              <img src={image} alt="court"></img>
+              <Typography variant="h4">{name}</Typography>
+              <Typography variant="h5">{type}</Typography>
+              <p>Available Slots: </p>
+              <p>Booked Slots: </p>
+              <Button size="md">Book {name}</Button>
+            </div>
+          ))}
         </div>
       </div>
     </>

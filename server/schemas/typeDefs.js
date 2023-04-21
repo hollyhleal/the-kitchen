@@ -7,26 +7,24 @@ const typeDefs = gql`
     email: String!
     password: String!
     level: String!
-    team: [Team]
     reservations: [Reservation]
   }
 
-  type Team {
-    player1: Player
-    player2: Player
-  }
-
   type Court {
-    team1: Team
-    team2: Team
+    _id: ID
+    name: String!
+    player1: Player!
+    player2: Player!
+    player3: Player!
+    player4: Player!
     reservations: [Reservation]
   }
 
   type Reservation {
-    court: Court
-    player1: Player
-    player2: Player
-    price: Float
+    court: Court!
+    player: Player!
+    time: Int!
+    price: Float!
   }
 
   type Auth {
@@ -35,10 +33,12 @@ const typeDefs = gql`
   }
 
   type Query {
+    player: [Player]
     players: [Player]
     courts: [Court]
+    court: [Court]
+    reservation: [Reservation]
     me: Player
-    createCheckoutSession: String # '{url: STRIPEURL.com}'
   }
 
   type Mutation {
@@ -46,7 +46,6 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     removePlayer(playerId: ID!): Player
     addCourt(courtId: ID!): Court
-    addToTeam(teamId: ID!, playerId: ID!): Team
     addReservation(reservationId: ID!, playerId: ID!, courtId: ID!): Reservation
   }
 `;

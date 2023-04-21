@@ -9,7 +9,18 @@ module.exports = withMT({
     "./node_modules/react-tailwindcss-datepicker/dist/index.esm.js",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        teal: "#095256",
+        green: "#849324",
+        beige: "#F5F7DC",
+        orchid: "#998DA0",
+        blue: "#125E8A",
+      },
+      fontFamily: {
+        display: ['"Sedgwick Ave Display"', "cursive"],
+      },
+    },
   },
   plugins: [],
 });
