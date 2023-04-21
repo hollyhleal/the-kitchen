@@ -24,7 +24,7 @@ export default function NavBar() {
   const [showSignupModal, setShowSignupModal] = useState(false);
 
   const handleSignupOpen = () => {
-    setOpen(false); 
+    setOpen(false);
     setShowSignupModal(true);
   };
 
@@ -41,7 +41,12 @@ export default function NavBar() {
 
   const navList = (
     <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
-      <Typography as="li" variant="small" color="" className="p-1 font-normal">
+      <Typography
+        as="li"
+        variant="small"
+        color="red"
+        className="p-1 font-normal"
+      >
         <NavLink
           onClick={navLinkCLick}
           className="flex items-center font-semibold text-blue-800 text-2xl"
@@ -106,7 +111,7 @@ export default function NavBar() {
           >
             The Kitchen
           </Typography>
-         <Login />
+          <Login />
           <div className="flex items-center gap-4">
             <div className="mr-4 hidden lg:block">{navList}</div>
             <React.Fragment>
@@ -137,10 +142,16 @@ export default function NavBar() {
                     </div>
                   </CardBody>
                   <CardFooter className="pt-0">
-                    <Button variant="gradient" showModal={showSignupModal} setShowModal={setShowSignupModal} onClick={Login} fullWidth>
+                    <Button
+                      variant="gradient"
+                      showModal={showSignupModal}
+                      setShowModal={setShowSignupModal}
+                      onClick={Login}
+                      fullWidth
+                    >
                       Sign In
                     </Button>
-                    
+
                     <Typography
                       variant="small"
                       className="mt-6 flex justify-center"
@@ -153,7 +164,7 @@ export default function NavBar() {
                         className="ml-1 font-bold"
                         onClick={handleSignupOpen}
                       >
-                        Sign up 
+                        Sign up
                       </Typography>
                     </Typography>
                   </CardFooter>
@@ -199,12 +210,13 @@ export default function NavBar() {
             </IconButton>
           </div>
         </div>
-        <MobileNav open={openNav}>
-          {navList}
-        </MobileNav>
+        <MobileNav open={openNav}>{navList}</MobileNav>
       </Navbar>
-      <Signup className="hidden" showModal={showSignupModal} setShowModal={setShowSignupModal} />
-
+      <Signup
+        className="hidden"
+        showModal={showSignupModal}
+        setShowModal={setShowSignupModal}
+      />
     </>
   );
 }
