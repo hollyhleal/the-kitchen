@@ -88,7 +88,6 @@ export default function Home() {
           </React.Fragment>
         </div>
         <div className="place-self-center">
-          
         </div>
       </div>
     </>
