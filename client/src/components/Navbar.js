@@ -106,6 +106,7 @@ export default function NavBar() {
           >
             The Kitchen
           </Typography>
+         <Login />
           <div className="flex items-center gap-4">
             <div className="mr-4 hidden lg:block">{navList}</div>
             <React.Fragment>
@@ -139,6 +140,7 @@ export default function NavBar() {
                     <Button variant="gradient" showModal={showSignupModal} setShowModal={setShowSignupModal} onClick={Login} fullWidth>
                       Sign In
                     </Button>
+                    
                     <Typography
                       variant="small"
                       className="mt-6 flex justify-center"

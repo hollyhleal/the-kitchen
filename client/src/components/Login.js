@@ -43,8 +43,10 @@ const Login = () => {
     return (
 
 
-
         <>
+{/* <Button className="hidden lg:inline-block" onClick={handleOpen}>
+  Sign In
+</Button> */}
             <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
                 <div className="sm:mx-auto sm:w-full sm:max-w-md">
                     <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
@@ -60,7 +62,7 @@ const Login = () => {
                         )}
                         <form className="space-y-6" onSubmit={handleFormSubmit} noValidate>
                             <div>
-                                <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                                <label htmlFor="email" className="block text-sm font-medium text-black-700">
                                     Email address
                                 </label>
                                 <div className="mt-1">
@@ -77,7 +79,7 @@ const Login = () => {
                                 </div>
                             </div>
                             <div>
-                                <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+                                <label htmlFor="password" className="block text-sm font-medium text-black-700">
                                     Password
                                 </label>
                                 <div className="mt-1">
@@ -115,7 +117,5 @@ const Login = () => {
         
         </>
     )
-
-    
 }
 export default Login;
