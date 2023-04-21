@@ -8,7 +8,7 @@ const FRONTEND_DOMAIN = "http://localhost:3001";
 const resolvers = {
   Query: {
     players: async () => {
-      return Player.find()
+      return Player.find();
     },
     player: async (parent, { name }) => {
       return Player.findOne({ name }).populate("players");
@@ -50,8 +50,8 @@ const resolvers = {
     //       },
     //     ],
     //     mode: "payment",
-    //     success_url: FRONTEND_DOMAIN + "/success",
-    //     cancel_url: FRONTEND_DOMAIN + "/cancel",
+    //     success_url: `${YOUR_DOMAIN}?success=true`,
+    //     cancel_url: `${YOUR_DOMAIN}?canceled=true`,
     //   });
 
     //   return JSON.stringify({
@@ -103,7 +103,7 @@ const resolvers = {
     addCourt: async (parent, { courtId }) => {
       const court = await Court.create({ courtId });
     },
-   
+
     addReservation: async (
       parent,
       { reservationId, playerId, courtId },
