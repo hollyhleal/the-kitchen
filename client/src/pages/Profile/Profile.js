@@ -12,7 +12,6 @@ function Profile() {
   return (
     <>
       <div className="flex flex-row">
-        {/* <div class=""> */}
         {/* left-hand side column for profile photo/bio */}
         <div className="basis-1/2 place-self-center text-center my-8">
           <Typography variant="h3">Welcome back, Name!</Typography>
@@ -45,7 +44,6 @@ function Profile() {
             <Typography variant="h6">Session: Singles</Typography>
           </div>
         </div>
-        {/* </div> */}
       </div>
     </>
   );
