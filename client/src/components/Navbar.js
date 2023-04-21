@@ -15,6 +15,7 @@ import {
   Checkbox,
 } from "@material-tailwind/react";
 import Signup from "./Signup";
+import Login from "../components/Login";
 
 export default function NavBar() {
   const [openNav, setOpenNav] = React.useState(false);
@@ -135,7 +136,7 @@ export default function NavBar() {
                     </div>
                   </CardBody>
                   <CardFooter className="pt-0">
-                    <Button variant="gradient" showModal={showSignupModal} setShowModal={setShowSignupModal} onClick={handleOpen} fullWidth>
+                    <Button variant="gradient" showModal={showSignupModal} setShowModal={setShowSignupModal} onClick={Login} fullWidth>
                       Sign In
                     </Button>
                     <Typography
