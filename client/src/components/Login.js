@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import { useMutation } from '@apollo/client';
+import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 import Auth from '../utils/Auth.js';
 
@@ -9,7 +9,7 @@ const Login = () => {
     const [showAlert, setShowAlert] = useState(false);
 
     // mutation for login of user 
-    // const [loginUser] = useMutation(LOGIN_USER);
+    const [loginUser] = useMutation(LOGIN_USER);
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -26,10 +26,10 @@ const Login = () => {
         };
 
         try {
-            // const { data } = await loginUser({ variables: { ...userFormData } });
+            const { data } = await loginUser({ variables: { ...userFormData } });
 
-            // Auth.login(data.login.token);
-            // console.log('FORM SUBMIT', data);
+            Auth.login(data.token);
+            console.log('FORM SUBMIT', data);
         } catch (err) {
             console.error(err);
             setShowAlert(true);

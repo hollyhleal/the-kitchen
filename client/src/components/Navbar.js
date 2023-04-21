@@ -198,54 +198,6 @@ export default function NavBar() {
         </div>
         <MobileNav open={openNav}>
           {navList}
-          <React.Fragment>
-            <Button onClick={handleOpen}>Sign In</Button>
-            <Dialog
-              size="xs"
-              open={open}
-              handler={handleOpen}
-              className="bg-transparent shadow-none "
-            >
-              <Card className="w-full max-w-[24rem]">
-                <CardHeader
-                  variant="gradient"
-                  color="blue"
-                  className="mb-4 grid h-28 place-items-center"
-                >
-                  <Typography variant="h3" color="white">
-                    Sign In
-                  </Typography>
-                </CardHeader>
-                <CardBody className="flex flex-col gap-4">
-                  <Input label="Email" size="lg" />
-                  <Input label="Password" size="lg" />
-                  <div className="-ml-2.5">
-                    <Checkbox label="Remember Me" />
-                  </div>
-                </CardBody>
-                <CardFooter className="pt-0">
-                  <Button variant="gradient" onClick={handleOpen} fullWidth>
-                    Sign In
-                  </Button>
-                  <Typography
-                    variant="small"
-                    className="mt-6 flex justify-center"
-                  >
-                    Don&apos;t have an account?
-                    <Typography
-                      as="button"
-                      variant="small"
-                      color="blue"
-                      className="ml-1 font-bold"
-                      onClick={handleSignupOpen}
-                    >
-                      Sign up
-                    </Typography>
-                  </Typography>
-                </CardFooter>
-              </Card>
-            </Dialog>
-          </React.Fragment>
         </MobileNav>
       </Navbar>
       <Signup className="hidden" showModal={showSignupModal} setShowModal={setShowSignupModal} />
