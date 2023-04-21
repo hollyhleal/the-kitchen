@@ -1,5 +1,6 @@
 import React from "react";
 import "./Home.css";
+import Signup from "../../components/Signup"
 import Paddle from "./pickleBall-Paddle.jpg";
 import {
   Button,
