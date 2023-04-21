@@ -5,7 +5,7 @@ import Auth from "../utils/Auth";
 
 
 const Signup = ({ showModal, setShowModal }) => {
-    const [userFormData, setUserFormData] = useState({ email: "", password: "" });
+    const [userFormData, setUserFormData] = useState({ name: "", email: "", password: "" });
     const [validated] = useState(false);
     const [showAlert, setShowAlert] = useState(false);
 
@@ -26,13 +26,14 @@ const Signup = ({ showModal, setShowModal }) => {
         
         try {
             const { data } = await createUser({ variables: { ...userFormData } });
-            Auth.login(data.addUser.token);
+            Auth.login(data.token);
         } catch (err) {
             console.error(err);
             setShowAlert(true);
         };
 
         setUserFormData({
+            name: '',
             email: '',
             password: '',
         });
@@ -40,13 +41,6 @@ const Signup = ({ showModal, setShowModal }) => {
     
     return (
         <>
-            <button
-                type="button"
-                onClick={() => setShowModal(true)}
-                className="bg-blue-500 text-white font-semibold py-2 px-4 rounded"
-            >
-                Sign Up
-            </button>
             {showModal && (
                 <div className="fixed z-10 inset-0 overflow-y-auto">
                     <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
@@ -62,6 +56,19 @@ const Signup = ({ showModal, setShowModal }) => {
                                 )}
                                 <h3 className="text-lg leading-6 font-medium text-gray-900 mb-3">Sign Up</h3>
                                 <form onSubmit={handleFormSubmit}>
+                                <div className="mb-4">
+                                        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">Name</label>
+                                        <input
+                                            type="name"
+                                            name="name"
+                                            onChange={handleInputChange}
+                                            value={userFormData.name}
+                                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                            id="name"
+                                            placeholder="Enter your name"
+                                            required
+                                        />
+                                    </div>
                                     <div className="mb-4">
                                         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">Email</label>
                                         <input
