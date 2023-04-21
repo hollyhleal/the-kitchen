@@ -62,12 +62,12 @@ const resolvers = {
 
   // logic for mutation
   Mutation: {
-    addPlayer: async (parent, { email, password }) => {
-      const player = await Player.create({email, password });
+    addPlayer: async (parent, { name, email, password }) => {
+      const player = await Player.create({name, email, password });
       const token = signToken(player);
       return { token, player };
     },
-    login: async (parent, { email, password }) => {
+    login: async (parent, { name , email, password }) => {
       const player = await Player.findOne({ email });
 
       if (!player) {
