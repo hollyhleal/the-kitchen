@@ -11,18 +11,13 @@ import { gql } from "@apollo/client";
 // `;
 
 export const ADD_PLAYER = gql`
-  mutation addPlayer(
-    $email: String! 
-    $password: String!
-    ) {
-    addPlayer(email: $email
-       password: $password
-       ) {
-        token
+   mutation AddPlayer($name: String!, $email: String!, $password: String!) {
+    addPlayer(name: $name, email: $email, password: $password) {
+      token
       player {
         _id
+        name
         email
-        
       }
     }
   }
