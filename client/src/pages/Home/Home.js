@@ -18,15 +18,17 @@ export default function Home() {
   const handleOpen = () => setOpen((cur) => !cur);
   return (
     <>
+    <div class="text-2xl md:text-4xl">
       <div
-        class=" opacity-100 bg-cover bg-center h-96 bg-no-repeat content contrast-100 brightness-75 "
+        class=" opacity-100 min-h-screen max-h-screen bg-cover bg-center h-96 bg-no-repeat content contrast-100 brightness-75 "
         style={{ backgroundImage: `url(${Paddle})` }}></div>
-          <h3 class="absolute text-5xl text-white text-left pr-60 top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 contrast-150">
+          <h3 class="absolute text-5xl  text-white text-left pr-60 top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 contrast-150">
             You Can't Serve Up </h3>
-            <h3 class="absolute text-5xl text-white pl-6 contrast-125 top-1/3 left-1/4 -translate-x-1/2 -translate-y-1/2">
+            <h3 class="absolute mx-auto text-5xl text-white pl-6 contrast-125 top-1/3 left-1/4 -translate-x-1/2 -translate-y-1/2">
             A Masterpiece If You're Not In... </h3>
-            <h1 class="absolute text-8xl text-white pl-6 font-bold contrast-125 top-1/2 right-1/4 -translate-x-1/2 -translate-y-1/2">
+            <h1 class="absolute mx-auto text-8xl text-white pl-6 font-bold contrast-125 top-1/2 right-1/4 -translate-x-1/2 -translate-y-1/2">
             The Kitchen </h1>
+            </div>
         
       <div className="container mx-auto grid grid-cols-3 h-96 text-center">
         <div className="place-self-center"></div>
