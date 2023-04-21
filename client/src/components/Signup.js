@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_PLAYER } from "../utils/mutations";
 import Auth from "../utils/Auth";
+import { redirect } from "react-router-dom"; // Import Redirect
 
 const Signup = ({ showModal, setShowModal }) => {
   const [userFormData, setUserFormData] = useState({
@@ -11,6 +12,7 @@ const Signup = ({ showModal, setShowModal }) => {
   });
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
+  // const [redirectToProfile, setRedirectToProfile] = useState(false); // Add redirectToProfile state variable
 
   const [createUser] = useMutation(ADD_PLAYER);
 
@@ -27,9 +29,18 @@ const Signup = ({ showModal, setShowModal }) => {
       event.stopPropagation();
     }
 
+    // const form = event.currentTarget;
+    // if (form.checkValidity() === false) {
+    //     event.preventDefault();
+    //     event.stopPropagation();
+    // };
+
     try {
       const { data } = await createUser({ variables: { ...userFormData } });
       Auth.login(data.token);
+      // history.push("/profile"); // Navigate the user to their profile page
+      console.log(data);
+      redirect("/profile");
     } catch (err) {
       console.error(err);
       setShowAlert(true);
@@ -41,6 +52,10 @@ const Signup = ({ showModal, setShowModal }) => {
       password: "",
     });
   };
+
+  // if (redirectToProfile) {
+  //     return <redirect to="/profile" />;
+  // }
 
   return (
     <>
