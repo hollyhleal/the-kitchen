@@ -20,6 +20,12 @@ export default function NavBar() {
   const [openNav, setOpenNav] = React.useState(false);
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen((cur) => !cur);
+  const [showSignupModal, setShowSignupModal] = useState(false);
+
+  const handleSignupOpen = () => {
+    setOpen(false); 
+    setShowSignupModal(true);
+  };
 
   React.useEffect(() => {
     window.addEventListener(
@@ -129,7 +135,7 @@ export default function NavBar() {
                     </div>
                   </CardBody>
                   <CardFooter className="pt-0">
-                    <Button variant="gradient" onClick={handleOpen} fullWidth>
+                    <Button variant="gradient" showModal={showSignupModal} setShowModal={setShowSignupModal} onClick={handleOpen} fullWidth>
                       Sign In
                     </Button>
                     <Typography
@@ -138,14 +144,13 @@ export default function NavBar() {
                     >
                       Don&apos;t have an account?
                       <Typography
-                        as="a"
-                        href="#signup"
+                        as="button"
                         variant="small"
                         color="blue"
                         className="ml-1 font-bold"
-                        onClick={handleOpen}
+                        onClick={handleSignupOpen}
                       >
-                        Sign up
+                        Sign up 
                       </Typography>
                     </Typography>
                   </CardFooter>
@@ -228,12 +233,11 @@ export default function NavBar() {
                   >
                     Don&apos;t have an account?
                     <Typography
-                      as="a"
-                      href="#signup"
+                      as="button"
                       variant="small"
                       color="blue"
                       className="ml-1 font-bold"
-                      onClick={handleOpen}
+                      onClick={handleSignupOpen}
                     >
                       Sign up
                     </Typography>
@@ -244,6 +248,8 @@ export default function NavBar() {
           </React.Fragment>
         </MobileNav>
       </Navbar>
+      <Signup className="hidden" showModal={showSignupModal} setShowModal={setShowSignupModal} />
+
     </>
   );
 }
