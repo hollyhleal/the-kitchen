@@ -37,7 +37,7 @@ const resolvers = {
           populate: "reservations",
         });
 
-        return user.reservations.id(_id);
+        return player.reservations.id(_id);
       }
     },
 
@@ -62,10 +62,10 @@ const resolvers = {
 
   // logic for mutation
   Mutation: {
-    addPlayer: async (parent, { name, email, password }) => {
-      const player = await Player.create({ name, email, password });
+    addPlayer: async (parent, { email, password }) => {
+      const player = await Player.create({email, password });
       const token = signToken(player);
-      return { token, user };
+      return { token, player };
     },
     login: async (parent, { email, password }) => {
       const player = await Player.findOne({ email });
