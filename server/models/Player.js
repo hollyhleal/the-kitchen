@@ -3,7 +3,7 @@ const { Schema, model } = require("mongoose");
 const playerSchema = new Schema({
   name: {
     type: String,
-    required: true,
+    required: false,
     trim: true,
   },
   email: {
@@ -20,7 +20,7 @@ const playerSchema = new Schema({
   },
   level: {
     type: String,
-    required: true,
+    required: false,
   },
   reservations: [
     {
