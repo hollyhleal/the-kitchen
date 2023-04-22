@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import { useMutation } from '@apollo/client';
+import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../utils/mutations";
 import Auth from "../utils/Auth.js";
 
@@ -9,7 +9,7 @@ const Login = () => {
   const [showAlert, setShowAlert] = useState(false);
 
   // mutation for login of user
-  // const [loginUser] = useMutation(LOGIN_USER);
+  const [loginUser] = useMutation(LOGIN_USER);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -18,17 +18,17 @@ const Login = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    // check if form has everything (as per react-bootstrap docs)
     const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
+    // if (form.checkValidity() === false) {
+    //   event.preventDefault();
+    //   event.stopPropagation();
+    // }
 
     try {
-      // const { data } = await loginUser({ variables: { ...userFormData } });
-      // Auth.login(data.login.token);
-      // console.log('FORM SUBMIT', data);
+      const { data } = await loginUser({ variables: { ...userFormData } });
+
+      Auth.login(data.login.token);
+      console.log("FORM SUBMIT", data);
     } catch (err) {
       console.error(err);
       setShowAlert(true);
@@ -42,6 +42,9 @@ const Login = () => {
 
   return (
     <>
+      {/* <Button className="hidden lg:inline-block" onClick={handleOpen}>
+  Sign In
+</Button> */}
       <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
@@ -59,7 +62,7 @@ const Login = () => {
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium text-gray-700"
+                  className="block text-sm font-medium text-black-700"
                 >
                   Email address
                 </label>
@@ -79,7 +82,7 @@ const Login = () => {
               <div>
                 <label
                   htmlFor="password"
-                  className="block text-sm font-medium text-gray-700"
+                  className="block text-sm font-medium text-black-700"
                 >
                   Password
                 </label>
