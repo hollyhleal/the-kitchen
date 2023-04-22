@@ -8,8 +8,8 @@ import Profile from "../pages/Profile/Profile";
 const Login = () => {
   const [userFormData, setUserFormData] = useState({ email: "", password: "" });
   const [validated] = useState(false);
-    const [showAlert, setShowAlert] = useState(false);
-    const navigate = useNavigate();
+  // const [showAlert, setShowAlert] = useState(false);
+  const navigate = useNavigate();
 
   // mutation for login of user
   const [loginUser] = useMutation(LOGIN_USER);
@@ -31,11 +31,11 @@ const Login = () => {
       const { data } = await loginUser({ variables: { ...userFormData } });
 
       Auth.login(data.login.token);
-        console.log("FORM SUBMIT", data);
-        navigate.push(<Profile />)
+      console.log("FORM SUBMIT", data);
+      navigate.push(<Profile />);
     } catch (err) {
       console.error(err);
-      setShowAlert(true);
+      // setShowAlert(true);
     }
 
     setUserFormData({
@@ -54,11 +54,11 @@ const Login = () => {
         </div>
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
           <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-            {showAlert && (
+            {/* {showAlert && (
               <div className="bg-red-500 text-white p-3 rounded my-4">
                 Login failed! Please check your credentials.
               </div>
-            )}
+            )} */}
             <form className="space-y-6" onSubmit={handleFormSubmit} noValidate>
               <div>
                 <label

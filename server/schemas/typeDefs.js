@@ -23,6 +23,7 @@ const typeDefs = gql`
   type Reservation {
     court: Court!
     player: Player!
+    date: String!
     time: Int!
     price: Float!
   }
@@ -42,7 +43,7 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    addPlayer(name: String! email: String!, password: String!): Auth
+    addPlayer(name: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
     removePlayer(playerId: ID!): Player
     addCourt(courtId: ID!): Court
