@@ -3,6 +3,7 @@ import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../utils/mutations";
 import Auth from "../utils/Auth.js";
 import { useNavigate } from "react-router-dom";
+import Profile from "../pages/Profile/Profile";
 
 const Login = () => {
   const [userFormData, setUserFormData] = useState({ email: "", password: "" });
@@ -31,7 +32,7 @@ const Login = () => {
 
       Auth.login(data.login.token);
         console.log("FORM SUBMIT", data);
-        navigate.push("/profile")
+        navigate.push(<Profile />)
     } catch (err) {
       console.error(err);
       setShowAlert(true);

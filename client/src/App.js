@@ -8,7 +8,7 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
-import { useNavigate } from "react-router-dom"
+import { Navigate } from "react-router-dom"
 
 import NavBar from "./components/Navbar";
 import Home from "./pages/Home/Home";
