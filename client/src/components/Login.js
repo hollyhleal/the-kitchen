@@ -2,11 +2,14 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../utils/mutations";
 import Auth from "../utils/Auth.js";
+import { useNavigate } from "react-router-dom";
+import Profile from "../pages/Profile/Profile";
 
 const Login = () => {
   const [userFormData, setUserFormData] = useState({ email: "", password: "" });
   const [validated] = useState(false);
-  const [showAlert, setShowAlert] = useState(false);
+    const [showAlert, setShowAlert] = useState(false);
+    const navigate = useNavigate();
 
   // mutation for login of user
   const [loginUser] = useMutation(LOGIN_USER);
@@ -28,7 +31,8 @@ const Login = () => {
       const { data } = await loginUser({ variables: { ...userFormData } });
 
       Auth.login(data.login.token);
-      console.log("FORM SUBMIT", data);
+        console.log("FORM SUBMIT", data);
+        navigate.push(<Profile />)
     } catch (err) {
       console.error(err);
       setShowAlert(true);
