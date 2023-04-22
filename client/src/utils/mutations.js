@@ -9,7 +9,7 @@ export const LOGIN_USER = gql`
 `;
 
 export const ADD_PLAYER = gql`
-  mutation AddPlayer($name: String!, $email: String!, $password: String!) {
+  mutation addPlayer($name: String!, $email: String!, $password: String!) {
     addPlayer(name: $name, email: $email, password: $password) {
       token
       player {
@@ -20,6 +20,24 @@ export const ADD_PLAYER = gql`
     }
   }
 `;
+
+export const ADD_RESERVATION = gql`
+mutation addReservation($reservationId: ID!, $playerId: ID!, $courtId: ID!) {
+  addReservation(reservationId: $reservationId, playerId: $playerId, courtId: $courtId) {
+    court {
+      _id
+    }
+    player {
+      _id
+    }
+    price
+    time
+  }
+}
+
+
+`
+  ;
 
 export const REMOVE_PLAYER = gql`
   mutation removeplayer($player: ID!) {
@@ -32,4 +50,8 @@ export const REMOVE_PLAYER = gql`
       }
     }
   }
+
+
+
+
 `;
