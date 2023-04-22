@@ -2,11 +2,14 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../utils/mutations";
 import Auth from "../utils/Auth.js";
+import { useNavigate } from "react-router-dom";
+import Profile from "../pages/Profile/Profile";
 
 const Login = () => {
   const [userFormData, setUserFormData] = useState({ email: "", password: "" });
   const [validated] = useState(false);
-  const [showAlert, setShowAlert] = useState(false);
+    const [showAlert, setShowAlert] = useState(false);
+    const navigate = useNavigate();
 
   // mutation for login of user
   const [loginUser] = useMutation(LOGIN_USER);
@@ -28,7 +31,8 @@ const Login = () => {
       const { data } = await loginUser({ variables: { ...userFormData } });
 
       Auth.login(data.login.token);
-      console.log("FORM SUBMIT", data);
+        console.log("FORM SUBMIT", data);
+        navigate.push(<Profile />)
     } catch (err) {
       console.error(err);
       setShowAlert(true);
@@ -42,9 +46,6 @@ const Login = () => {
 
   return (
     <>
-      {/* <Button className="hidden lg:inline-block" onClick={handleOpen}>
-  Sign In
-</Button> */}
       <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">

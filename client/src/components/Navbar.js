@@ -14,8 +14,6 @@ import {
   Input,
   Checkbox,
 } from "@material-tailwind/react";
-import Signup from "./Signup";
-// import Login from "../components/Login";
 
 export default function NavBar() {
   const [openNav, setOpenNav] = React.useState(false);
@@ -202,7 +200,6 @@ export default function NavBar() {
           {navList}
         </MobileNav>
       </Navbar>
-      <Signup className="hidden" showModal={showSignupModal} setShowModal={setShowSignupModal} />
 
     </>
   );

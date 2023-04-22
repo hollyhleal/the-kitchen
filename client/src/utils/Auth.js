@@ -43,7 +43,7 @@ class AuthService {
     }
     // this will save the token when logged in to local storage
     localStorage.setItem("id_token", idToken);
-    window.location.assign("/");
+    window.location.assign("/profile");
   }
 
   logout() {
