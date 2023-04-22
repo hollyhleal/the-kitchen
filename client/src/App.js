@@ -8,6 +8,7 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
+import { Navigate } from "react-router-dom"
 
 import NavBar from "./components/Navbar";
 import Home from "./pages/Home/Home";
@@ -48,7 +49,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/booking" element={<Booking />} />
-        {/* <Route path="/payment" element={<Payment />} /> */}
+          {/* <Route path="/payment" element={<Payment />} /> */}
+        <Route path="profile" element={Profile} /> 
       </Routes>
       <Footer />
     </Router>

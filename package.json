@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node server/server.js --ignore client",
-    "develop": "concurrently \"cd server && npm run start\" \"cd client && npm start\" \"cd server && npm run seed\"",
+    "develop": "concurrently \"cd server && npm run start\" \"cd client && npm start\" ",
     "install": "cd server && npm i && cd ../client && npm i",
     "build": "cd client && npm run build"
     
