@@ -19,10 +19,10 @@ const Login = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     const form = event.currentTarget;
-    // if (form.checkValidity() === false) {
-    //   event.preventDefault();
-    //   event.stopPropagation();
-    // }
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
 
     try {
       const { data } = await loginUser({ variables: { ...userFormData } });
