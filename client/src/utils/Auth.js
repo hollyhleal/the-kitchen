@@ -31,6 +31,11 @@ class AuthService {
   }
 
   login(idToken) {
+    // this will save the token when logged in to local storage
+    localStorage.setItem("id_token", idToken);
+    window.location.assign("/");
+  }
+  login(idToken) {
     if (idToken === undefined) {
       console.log("idToken is undefined");
       return;
