@@ -65,9 +65,10 @@ export default function Booking() {
             <Typography className="text-center" variant="h4" color="blue-gray">
               Reserve
             </Typography>
-            <Typography color="gray" className="mt-1 font-normal">
-              Select a date to reserve a court. (Please Note: You must reserve
-              at least one day in advance.)
+            <Typography color="gray" className="mt-1 font-normal text-center">
+              Select a date to reserve a court.
+              <br />
+              Note: You must reserve at least one day in advance.
             </Typography>
             <div className="mb-4 flex flex-col gap-6">
               <Datepicker
