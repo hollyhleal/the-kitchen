@@ -21,10 +21,13 @@ export default function Booking() {
 
   const object = decode(localStorage.getItem("id_token"));
   console.log(object.data._id);
+  const [createReservation] = useMutation(ADD_RESERVATION);
 
   const [resTime, setResTime] = useState({
     hour: null,
   });
+
+  let reservationDetails = {};
 
   const selectResTime = (resTime) => {
     console.log(resTime);
@@ -43,22 +46,36 @@ export default function Booking() {
   const selectCourt = (e) => {
     console.log(e.target.id);
     localStorage.setItem("court", e.target.id);
+    reservationDetails["playerId"] = object.data._id;
+    reservationDetails["courtId"] = e.target.id;
+    reservationDetails["date"] = resDate;
+    reservationDetails["time"] = resTime;
+    makeRes(reservationDetails);
   };
 
-  const makeRes = () => {
-    const reservation = [];
+  const makeRes = async (reservationDetails) => {
+    try {
+      let { data } = await createReservation({
+        variables: { ...reservationDetails },
+      });
+    } catch (err) {
+      console.error(err);
+      // setShowAlert(true);
+    }
+
+    // const reservation = [];
     // localStorage.getItem("court");
-    reservation.push(localStorage.getItem("court"));
-    reservation.push(localStorage.getItem("resDate"));
-    reservation.push(localStorage.getItem("resTime"));
-    reservation.push(localStorage.getItem("player"));
-    console.log(reservation);
-    const resObj = new Object();
-    resObj.playerId = reservation[3];
-    resObj.time = reservation[2];
-    console.log(resObj);
+    // reservation.push(localStorage.getItem("court"));
+    // reservation.push(localStorage.getItem("resDate"));
+    // reservation.push(localStorage.getItem("resTime"));
+    // reservation.push(localStorage.getItem("player"));
+    // console.log(reservation);
+    // const resObj = new Object();
+    // resObj.playerId = reservation[3];
+    // resObj.time = reservation[2];
+    // console.log(resObj);
   };
-  makeRes();
+
   return (
     <>
       <div className="container mx-auto">
@@ -67,9 +84,10 @@ export default function Booking() {
             <Typography className="text-center" variant="h4" color="blue-gray">
               Reserve
             </Typography>
-            <Typography color="gray" className="mt-1 font-normal">
-              Select a date to reserve a court. (Please Note: You must reserve
-              at least one day in advance.)
+            <Typography color="gray" className="mt-1 font-normal text-center">
+              Select a date to reserve a court.
+              <br />
+              Note: You must reserve at least one day in advance.
             </Typography>
             <div className="mb-4 flex flex-col gap-6">
               <Datepicker

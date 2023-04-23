@@ -54,82 +54,82 @@ const Signup = ({ showModal, setShowModal }) => {
 
   return (
     <>
-            <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-              <div className="sm:mx-auto sm:w-full sm:max-w-md">
-                <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-                  Sign Up For An Account
-                </h2>
-                </div>
-                <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-                <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-                <form classname="space-y-6" onSubmit={handleFormSubmit}>
-                  <div className="mb-4">
-                    <label
-                      className="block text-sm font-medium text-black-700"
-                      htmlFor="name"
-                    >
-                      Name
-                    </label>
-                    <input
-                      type="name"
-                      name="name"
-                      onChange={handleInputChange}
-                      value={userFormData.name}
-                      className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                      id="name"
-                      placeholder="Enter your name"
-                      required
-                    />
-                  </div>
-                  <div className="mb-4">
-                    <label
-                      className="block text-sm font-medium text-black-700"
-                      htmlFor="email"
-                    >
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      onChange={handleInputChange}
-                      value={userFormData.email}
-                      className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                      id="email"
-                      placeholder="Enter your email"
-                      required
-                    />
-                  </div>
-                  <div className="mb-6">
-                    <label
-                      className="block text-sm font-medium text-black-700"
-                      htmlFor="password"
-                    >
-                      Password
-                    </label>
-                    <input
-                      type="password"
-                      name="password"
-                      onChange={handleInputChange}
-                      value={userFormData.password}
-                      className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                      id="password"
-                      placeholder="Enter your password"
-                      minLength="5"
-                      required
-                    />
-                  </div>
-                  <div className="flex items-center justify-between">
-                  <button
-                    type="submit"
-                    className="w-full flex justify-center py-2 px-4 border    border-transparent rounded-md shadow-sm text-sm font-medium   text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                    >
-                  Sign up
-                  </button>
-                  </div>
-                </form>
+      <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+        <div className="sm:mx-auto sm:w-full sm:max-w-md">
+          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+            Sign Up For An Account
+          </h2>
+        </div>
+        <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+          <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+            <form classname="space-y-6" onSubmit={handleFormSubmit}>
+              <div className="mb-4">
+                <label
+                  className="block text-sm font-medium text-black-700"
+                  htmlFor="name"
+                >
+                  Name
+                </label>
+                <input
+                  type="name"
+                  name="name"
+                  onChange={handleInputChange}
+                  value={userFormData.name}
+                  className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  id="name"
+                  placeholder="Sam Smith"
+                  required
+                />
               </div>
-            </div>
+              <div className="mb-4">
+                <label
+                  className="block text-sm font-medium text-black-700"
+                  htmlFor="email"
+                >
+                  Email
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  onChange={handleInputChange}
+                  value={userFormData.email}
+                  className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  id="email"
+                  placeholder="sam@example.com"
+                  required
+                />
+              </div>
+              <div className="mb-6">
+                <label
+                  className="block text-sm font-medium text-black-700"
+                  htmlFor="password"
+                >
+                  Password
+                </label>
+                <input
+                  type="password"
+                  name="password"
+                  onChange={handleInputChange}
+                  value={userFormData.password}
+                  className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  id="password"
+                  placeholder="********"
+                  minLength="5"
+                  required
+                />
+              </div>
+              <div className="flex items-center justify-between">
+                <button
+                  type="submit"
+                  className="w-full flex justify-center py-2 px-4 border    border-transparent rounded-md shadow-sm text-sm font-medium   text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                >
+                  Sign up
+                </button>
+              </div>
+            </form>
           </div>
+        </div>
+      </div>
     </>
   );
 };

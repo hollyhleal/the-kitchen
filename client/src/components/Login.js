@@ -65,13 +65,14 @@ const Login = () => {
                   htmlFor="email"
                   className="block text-sm font-medium text-black-700"
                 >
-                  Email address
+                  Email
                 </label>
                 <div className="mt-1">
                   <input
                     id="email"
                     name="email"
                     type="email"
+                    placeholder="sam@example.com"
                     autoComplete="email"
                     required
                     value={userFormData.email}
@@ -92,6 +93,7 @@ const Login = () => {
                     id="password"
                     name="password"
                     type="password"
+                    placeholder="********"
                     autoComplete="current-password"
                     required
                     value={userFormData.password}

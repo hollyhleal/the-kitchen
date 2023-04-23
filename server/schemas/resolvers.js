@@ -106,9 +106,11 @@ const resolvers = {
 
     addReservation: async (
       parent,
-      { reservationId, playerId, courtId },
+      {playerId, courtId, date, time },
       context
     ) => {
+      console.log(context.player);
+      console.log(context.court);
       if (context.player && context.court) {
         const reservation = await Reservation.create({
           reservationId,

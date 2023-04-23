@@ -6,13 +6,11 @@ function Footer() {
   };
 
   return (
-        <footer className="mt-auto bg-gray-900 text-white py-4">
-          <div className="container mx-auto text-center">
-            <p>&copy; The Kitchen 2023</p>
-          </div>
-        </footer>
-
-
+    <footer className="mt-14 bg-gray-900 text-white py-4">
+      <div className="container mx-auto text-center">
+        <p>&copy; The Kitchen 2023</p>
+      </div>
+    </footer>
   );
 }
 
