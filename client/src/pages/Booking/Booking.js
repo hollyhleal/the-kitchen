@@ -45,9 +45,18 @@ export default function Booking() {
 
   const makeRes = () => {
     const reservation = [];
-    localStorage.getItem("court", "resDate", "resTime");
+    // localStorage.getItem("court");
+    reservation.push(localStorage.getItem("court"));
+    reservation.push(localStorage.getItem("resDate"));
+    reservation.push(localStorage.getItem("resTime"));
+    reservation.push(localStorage.getItem("player"));
+    console.log(reservation);
+    const resObj = new Object();
+    resObj.playerId = reservation[3];
+    resObj.time = reservation[2];
+    console.log(resObj);
   };
-
+  makeRes();
   return (
     <>
       <div className="container mx-auto">
