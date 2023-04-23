@@ -113,6 +113,13 @@ export default function NavBar() {
                       >
                         Payment
                       </NavLink>
+                    </Typography>
+                    <Typography
+                      as="li"
+                      variant="small"
+                      color="green"
+                      className="p-1 font-normal"
+                    >
                       <NavLink
                         onClick={Auth.logout}
                         className="flex items-center font-semibold text-blue-800 text-2xl"
