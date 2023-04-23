@@ -11,6 +11,23 @@ import personIcon from "../images/personicon.svg";
 function Profile() {
   const profileInfo = decode(localStorage.getItem("id_token"));
 
+  const reservation = [];
+  reservation.push(localStorage.getItem("player"));
+  reservation.push(localStorage.getItem("resDate"));
+  reservation.push(localStorage.getItem("resTime"));
+  reservation.push(localStorage.getItem("court"));
+
+  console.log(reservation);
+  const resObj = new Object();
+  resObj.playerId = reservation[0];
+  resObj.resDate = reservation[1];
+  resObj.resTime = reservation[2];
+  resObj.court = reservation[3];
+  console.log(resObj);
+  const newArray = [];
+  newArray.push(resObj);
+  console.log(newArray);
+
   return (
     <>
       <div className="flex flex-row">
@@ -43,12 +60,13 @@ function Profile() {
           </Button>
 
           <Typography variant="h4">Upcoming Reservations</Typography>
-          <div>
-            <Typography variant="h6">Date: 5/5/2023</Typography>
-            <Typography variant="h6">Time: 12pm</Typography>
-            <Typography variant="h6">Court: 4</Typography>
-            <Typography variant="h6">Session: Singles</Typography>
-          </div>
+          {newArray.map(({ resDate, resTime, court }) => (
+            <div>
+              <Typography variant="h6">{resDate}</Typography>
+              <Typography variant="h6">{resTime}</Typography>
+              <Typography variant="h6">Court: {court}</Typography>
+            </div>
+          ))}
         </div>
       </div>
     </>
