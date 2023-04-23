@@ -31,6 +31,12 @@ export default function Booking() {
     console.log("newValue:", newValue);
     setValue(newValue);
   };
+  function test() {
+    console.log(courts[2].courtId);
+  } 
+  test();
+
+  // const handle
 
   return (
     <>
