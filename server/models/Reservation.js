@@ -13,7 +13,7 @@ const reservationSchema = new Schema({
   },
 
   time: {
-    type: Number,
+    type: String,
     required: true,
   },
 

@@ -21,11 +21,10 @@ const typeDefs = gql`
   }
 
   type Reservation {
-    court: Court!
-    player: Player!
+    court: ID!
+    player: ID!
     date: String!
-    time: Int!
-    price: Float!
+    time: String!
   }
 
   type Auth {
@@ -47,7 +46,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     removePlayer(playerId: ID!): Player
     addCourt(courtId: ID!): Court
-    addReservation(reservationId: ID!, playerId: ID!, courtId: ID!): Reservation
+    addReservation(playerId: ID!, courtId: ID!, date: String!, time: String!): Reservation
   }
 `;
 
