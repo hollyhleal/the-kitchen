@@ -9,6 +9,7 @@ import {
 } from "@material-tailwind/react";
 import Datepicker from "react-tailwindcss-datepicker";
 import { courts } from "../../seeds/CourtData";
+import decode from "jwt-decode";
 
 export default function Booking() {
   const [value, setValue] = useState({
@@ -16,6 +17,9 @@ export default function Booking() {
     endDate: null,
   });
   // console.log(value);
+
+  const object = decode(localStorage.getItem("id_token"));
+  console.log(object.data._id);
 
   const [resTime, setResTime] = useState({
     hour: null,
@@ -33,7 +37,7 @@ export default function Booking() {
   };
   function test() {
     console.log(courts[2].courtId);
-  } 
+  }
   test();
 
   // const handle
