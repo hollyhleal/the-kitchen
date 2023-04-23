@@ -5,28 +5,34 @@ import {
   CardBody,
   Typography,
 } from "@material-tailwind/react";
-
+import decode from "jwt-decode";
 import personIcon from "../images/personicon.svg";
 
 function Profile() {
+  const profileInfo = decode(localStorage.getItem("id_token"));
+
   return (
     <>
       <div className="flex flex-row">
         {/* left-hand side column for profile photo/bio */}
         <div className="basis-1/2 place-self-center text-center my-8">
-          <Typography variant="h3">Welcome back, Name!</Typography>
+          <Typography variant="h3">
+            Welcome back, {profileInfo.data.name}!
+          </Typography>
           <Card className="w-96 mx-auto">
             <CardHeader floated={false} className="h-80">
               <img src={personIcon} alt="profile" />
             </CardHeader>
             <CardBody className="text-center">
               <Typography variant="h4" color="blue-gray" className="mb-2">
-                Name
+                {profileInfo.data.name}
               </Typography>
               <Typography color="blue" className="font-medium" textGradient>
                 Level
               </Typography>
-              <Typography className="font-medium">Member Since:</Typography>
+              <Typography className="font-medium">
+                Member Since: {profileInfo.data.createdAt}
+              </Typography>
             </CardBody>
           </Card>
         </div>

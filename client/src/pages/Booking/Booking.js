@@ -12,9 +12,8 @@ import { courts } from "../../seeds/CourtData";
 import decode from "jwt-decode";
 
 export default function Booking() {
-  const [value, setValue] = useState({
+  const [resDate, setResDate] = useState({
     startDate: null,
-    endDate: null,
   });
   // console.log(value);
 
@@ -25,23 +24,39 @@ export default function Booking() {
     hour: null,
   });
 
-  const handleTimeChange = (newTime) => {
-    console.log("newTime:", newTime);
-    setResTime(newTime);
+  const selectResTime = (resTime) => {
+    console.log(resTime);
+    setResTime(resTime);
+    localStorage.setItem("resTime", resTime);
   };
   console.log(resTime);
 
-  const handleValueChange = (newValue) => {
-    console.log("newValue:", newValue);
-    setValue(newValue);
+  const selectResDate = (resDate) => {
+    console.log(resDate.startDate);
+    setResDate(resDate);
+    localStorage.setItem("resDate", resDate.startDate);
+    localStorage.setItem("player", object.data._id);
   };
-  function test() {
-    console.log(courts[2].courtId);
-  }
-  test();
 
-  // const handle
+  const selectCourt = (e) => {
+    console.log(e.target.id);
+    localStorage.setItem("court", e.target.id);
+  };
 
+  const makeRes = () => {
+    const reservation = [];
+    // localStorage.getItem("court");
+    reservation.push(localStorage.getItem("court"));
+    reservation.push(localStorage.getItem("resDate"));
+    reservation.push(localStorage.getItem("resTime"));
+    reservation.push(localStorage.getItem("player"));
+    console.log(reservation);
+    const resObj = new Object();
+    resObj.playerId = reservation[3];
+    resObj.time = reservation[2];
+    console.log(resObj);
+  };
+  makeRes();
   return (
     <>
       <div className="container mx-auto">
@@ -59,23 +74,23 @@ export default function Booking() {
                 label="Date"
                 minDate={new Date()}
                 asSingle={true}
-                value={value}
-                onChange={handleValueChange}
+                value={resDate}
+                onChange={selectResDate}
                 displayFormat={"MM/DD/YYYY"}
               />
               <div className="w-90">
                 <Select
                   value={resTime}
-                  onChange={handleTimeChange}
+                  onChange={selectResTime}
                   name="time"
                   label="Time"
                 >
                   <Option value="10am">10am</Option>
                   <Option value="11am">11am</Option>
-                  <Option value="12am">12pm</Option>
+                  <Option value="12pm">12pm</Option>
                   <Option value="1pm">1pm</Option>
                   <Option value="2pm">2pm</Option>
-                  <Option value="3pn">3pm</Option>
+                  <Option value="3pm">3pm</Option>
                   <Option value="4pm">4pm</Option>
                   <Option value="5pm">5pm</Option>
                   <Option value="6pm">6pm</Option>
@@ -103,14 +118,16 @@ export default function Booking() {
 
       <div className="container mx-auto">
         <div className="flex flex-wrap mx-auto justify-center text-center">
-          {courts.map(({ name, type, image }) => (
+          {courts.map(({ name, type, image, courtId }) => (
             <div>
               <img src={image} alt="court"></img>
               <Typography variant="h4">{name}</Typography>
               <Typography variant="h5">{type}</Typography>
               <p>Available Slots: </p>
               <p>Booked Slots: </p>
-              <Button size="md">Book {name}</Button>
+              <Button onClick={selectCourt} size="md" id={courtId}>
+                Book {name}
+              </Button>
             </div>
           ))}
         </div>
