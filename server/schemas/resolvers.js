@@ -63,11 +63,11 @@ const resolvers = {
   // logic for mutation
   Mutation: {
     addPlayer: async (parent, { name, email, password }) => {
-      const player = await Player.create({name, email, password });
+      const player = await Player.create({ name, email, password });
       const token = signToken(player);
       return { token, player };
     },
-    login: async (parent, { name , email, password }) => {
+    login: async (parent, { name, email, password }) => {
       const player = await Player.findOne({ email });
 
       if (!player) {
@@ -106,7 +106,7 @@ const resolvers = {
 
     addReservation: async (
       parent,
-      {playerId, courtId, date, time },
+      { courtId, playerId, time, date },
       context
     ) => {
       console.log(context.player);
@@ -114,14 +114,18 @@ const resolvers = {
       if (context.player && context.court) {
         const reservation = await Reservation.create({
           reservationId,
+          court: courtId,
+          player: playerId,
+          time: time,
+          date: date,
         });
         await Court.findOneAndUpdate(
-          { _id: context.court._id },
+          { _id: courtId },
           { $addToSet: { reservations: reservation._id } }
         );
 
         await Player.findOneAndUpdate(
-          { _id: context.player._id },
+          { _id: playerId },
           { $addToSet: { reservations: reservation._id } },
           { new: true }
         );
