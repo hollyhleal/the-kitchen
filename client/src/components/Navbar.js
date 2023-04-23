@@ -160,7 +160,72 @@ export default function NavBar() {
             </IconButton>
           </div>
         </div>
-        {/* <MobileNav open={openNav}>{navList}</MobileNav> */}
+        <MobileNav open={openNav}>
+          <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
+            {Auth.loggedIn() ? (
+              <>
+                <Typography
+                  as="li"
+                  variant="small"
+                  color="green"
+                  className="p-1 font-normal"
+                >
+                  <NavLink
+                    onClick={navLinkCLick}
+                    className="flex items-center font-semibold text-blue-800 text-2xl"
+                    to="/profile"
+                  >
+                    Profile
+                  </NavLink>
+                </Typography>
+                <Typography
+                  as="li"
+                  variant="small"
+                  color="green"
+                  className="p-1 font-normal"
+                >
+                  <NavLink
+                    onClick={navLinkCLick}
+                    className="flex items-center font-semibold text-blue-800 text-2xl"
+                    to="/booking"
+                  >
+                    Booking
+                  </NavLink>
+                </Typography>
+                {/* <Typography
+                      as="li"
+                      variant="small"
+                      color="green"
+                      className="p-1 font-normal"
+                    >
+                      <NavLink
+                        onClick={navLinkCLick}
+                        className="flex items-center font-semibold text-blue-800 text-2xl"
+                        to="/payment"
+                      >
+                        Payment
+                      </NavLink>
+                    </Typography> */}
+                <Typography
+                  as="li"
+                  variant="small"
+                  color="green"
+                  className="p-1 font-normal"
+                >
+                  <NavLink
+                    onClick={Auth.logout}
+                    className="flex items-center font-semibold text-blue-800 text-2xl"
+                    to="/"
+                  >
+                    Logout
+                  </NavLink>
+                </Typography>
+              </>
+            ) : (
+              <div></div>
+            )}
+          </ul>
+        </MobileNav>
       </Navbar>
     </>
   );
