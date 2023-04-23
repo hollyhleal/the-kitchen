@@ -14,6 +14,7 @@ import {
   Input,
   Checkbox,
 } from "@material-tailwind/react";
+import Auth from "../utils/Auth";
 
 export default function NavBar() {
   const [openNav, setOpenNav] = React.useState(false);
@@ -22,7 +23,7 @@ export default function NavBar() {
   const [showSignupModal, setShowSignupModal] = useState(false);
 
   const handleSignupOpen = () => {
-    setOpen(false); 
+    setOpen(false);
     setShowSignupModal(true);
   };
 
@@ -37,61 +38,9 @@ export default function NavBar() {
     setOpenNav(false);
   };
 
-  const navList = (
-    <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
-      <Typography as="li" variant="small" color="black" className="p-1 font-normal">
-        <NavLink
-          onClick={navLinkCLick}
-          className="flex items-center font-semibold text-blue-800 text-2xl"
-          to="/"
-        >
-          Home
-        </NavLink>
-      </Typography>
-      <Typography
-        as="li"
-        variant="small"
-        color="green"
-        className="p-1 font-normal"
-      >
-        <NavLink
-          onClick={navLinkCLick}
-          className="flex items-center font-semibold text-blue-800 text-2xl"
-          to="/profile"
-        >
-          Profile
-        </NavLink>
-      </Typography>
-      <Typography
-        as="li"
-        variant="small"
-        color="green"
-        className="p-1 font-normal"
-      >
-        <NavLink
-          onClick={navLinkCLick}
-          className="flex items-center font-semibold text-blue-800 text-2xl"
-          to="/booking"
-        >
-          Booking
-        </NavLink>
-      </Typography>
-      <Typography
-        as="li"
-        variant="small"
-        color="green"
-        className="p-1 font-normal"
-      >
-        <NavLink
-          onClick={navLinkCLick}
-          className="flex items-center font-semibold text-blue-800 text-2xl"
-          to="/payment"
-        >
-          Payment
-        </NavLink>
-      </Typography>
-    </ul>
-  );
+  // const navList = (
+
+  // );
 
   return (
     <>
@@ -105,7 +54,87 @@ export default function NavBar() {
             The Kitchen
           </Typography>
           <div className="flex items-center gap-4">
-            <div className="mr-4 hidden lg:block">{navList}</div>
+            <div className="mr-4 hidden lg:block">
+              <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
+                {Auth.loggedIn() ? (
+                  <>
+                    <Typography
+                      as="li"
+                      variant="small"
+                      color="black"
+                      className="p-1 font-normal"
+                    >
+                      <NavLink
+                        onClick={navLinkCLick}
+                        className="flex items-center font-semibold text-blue-800 text-2xl"
+                        to="/"
+                      >
+                        Home
+                      </NavLink>
+                    </Typography>
+                    <Typography
+                      as="li"
+                      variant="small"
+                      color="green"
+                      className="p-1 font-normal"
+                    >
+                      <NavLink
+                        onClick={navLinkCLick}
+                        className="flex items-center font-semibold text-blue-800 text-2xl"
+                        to="/profile"
+                      >
+                        Profile
+                      </NavLink>
+                    </Typography>
+                    <Typography
+                      as="li"
+                      variant="small"
+                      color="green"
+                      className="p-1 font-normal"
+                    >
+                      <NavLink
+                        onClick={navLinkCLick}
+                        className="flex items-center font-semibold text-blue-800 text-2xl"
+                        to="/booking"
+                      >
+                        Booking
+                      </NavLink>
+                    </Typography>
+                    <Typography
+                      as="li"
+                      variant="small"
+                      color="green"
+                      className="p-1 font-normal"
+                    >
+                      <NavLink
+                        onClick={navLinkCLick}
+                        className="flex items-center font-semibold text-blue-800 text-2xl"
+                        to="/payment"
+                      >
+                        Payment
+                      </NavLink>
+                    </Typography>
+                    <Typography
+                      as="li"
+                      variant="small"
+                      color="green"
+                      className="p-1 font-normal"
+                    >
+                      <NavLink
+                        onClick={Auth.logout}
+                        className="flex items-center font-semibold text-blue-800 text-2xl"
+                        to="/"
+                      >
+                        Logout
+                      </NavLink>
+                    </Typography>
+                  </>
+                ) : (
+                  <div></div>
+                )}
+              </ul>
+            </div>
+
             <IconButton
               variant="text"
               className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
@@ -145,11 +174,8 @@ export default function NavBar() {
             </IconButton>
           </div>
         </div>
-        <MobileNav open={openNav}>
-          {navList}
-        </MobileNav>
+        {/* <MobileNav open={openNav}>{navList}</MobileNav> */}
       </Navbar>
-
     </>
   );
 }

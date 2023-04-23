@@ -10,6 +10,7 @@ class AuthService {
   loggedIn() {
     // this will check if the token has been saved and valid
     const token = this.getToken();
+    // const object = decode(this.getToken());
     // return !!token && !this.isTokenExpired(token);
     return token && !this.isTokenExpired(token) ? true : false;
   }
@@ -31,15 +32,15 @@ class AuthService {
     return localStorage.getItem("id_token");
   }
 
-    login(idToken) {
-        // this will save the token when logged in to local storage
-        localStorage.setItem('id_token', idToken);
-        window.location.assign('/');
-    }
+  login(idToken) {
+    // this will save the token when logged in to local storage
+    localStorage.setItem("id_token", idToken);
+    window.location.assign("/");
+  }
   login(idToken) {
     if (idToken === undefined) {
-        console.log('idToken is undefined');
-        return;
+      console.log("idToken is undefined");
+      return;
     }
     // this will save the token when logged in to local storage
     localStorage.setItem("id_token", idToken);

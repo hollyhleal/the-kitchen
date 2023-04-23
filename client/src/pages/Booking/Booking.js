@@ -9,17 +9,38 @@ import {
 } from "@material-tailwind/react";
 import Datepicker from "react-tailwindcss-datepicker";
 import { courts } from "../../seeds/CourtData";
+import decode from "jwt-decode";
 
 export default function Booking() {
   const [value, setValue] = useState({
     startDate: null,
     endDate: null,
   });
+  // console.log(value);
+
+  const object = decode(localStorage.getItem("id_token"));
+  console.log(object.data._id);
+
+  const [resTime, setResTime] = useState({
+    hour: null,
+  });
+
+  const handleTimeChange = (newTime) => {
+    console.log("newTime:", newTime);
+    setResTime(newTime);
+  };
+  console.log(resTime);
 
   const handleValueChange = (newValue) => {
     console.log("newValue:", newValue);
     setValue(newValue);
   };
+  function test() {
+    console.log(courts[2].courtId);
+  }
+  test();
+
+  // const handle
 
   return (
     <>
@@ -43,19 +64,24 @@ export default function Booking() {
                 displayFormat={"MM/DD/YYYY"}
               />
               <div className="w-90">
-                <Select label="Time">
-                  <Option>10am</Option>
-                  <Option>11am</Option>
-                  <Option>12pm</Option>
-                  <Option>1pm</Option>
-                  <Option>2pm</Option>
-                  <Option>3pm</Option>
-                  <Option>4pm</Option>
-                  <Option>5pm</Option>
-                  <Option>6pm</Option>
-                  <Option>7pm</Option>
-                  <Option>8pm</Option>
-                  <Option>9pm</Option>
+                <Select
+                  value={resTime}
+                  onChange={handleTimeChange}
+                  name="time"
+                  label="Time"
+                >
+                  <Option value="10am">10am</Option>
+                  <Option value="11am">11am</Option>
+                  <Option value="12am">12pm</Option>
+                  <Option value="1pm">1pm</Option>
+                  <Option value="2pm">2pm</Option>
+                  <Option value="3pn">3pm</Option>
+                  <Option value="4pm">4pm</Option>
+                  <Option value="5pm">5pm</Option>
+                  <Option value="6pm">6pm</Option>
+                  <Option value="7pm">7pm</Option>
+                  <Option value="8pm">8pm</Option>
+                  <Option value="9pm">9pm</Option>
                 </Select>
               </div>
               <div className="flex w-max gap-4">

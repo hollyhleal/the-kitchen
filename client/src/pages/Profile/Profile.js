@@ -6,7 +6,7 @@ import {
   Typography,
 } from "@material-tailwind/react";
 
-import personIcon from "../../images/personicon.svg";
+import personIcon from "../images/personicon.svg";
 
 function Profile() {
   return (
