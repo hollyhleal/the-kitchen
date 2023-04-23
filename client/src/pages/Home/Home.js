@@ -26,26 +26,24 @@ export default function Home() {
           style={{ backgroundImage: `url(${Paddle})` }}
         ></div>
         <div className="absolute hidden lg:block whitespace-nowrap top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 grid grid-rows-2">
-        <h3 className="text-3xl xl:text-5xl text-white text-left pr-60 pb-10 lg:pl-10 contrast-150">
-          You Can't Serve Up{" "}
-        </h3>
-        <h3 className="mx-auto text-3xl xl:text-5xl text-end text-white pb-10 lg:pl-10 contrast-125">
-          A Masterpiece If You're Not In...{" "}
-        </h3>
+          <h3 className="text-3xl xl:text-5xl text-white text-left pr-60 pb-10 lg:pl-10 contrast-150">
+            You Can't Serve Up{" "}
+          </h3>
+          <h3 className="mx-auto text-3xl xl:text-5xl text-end text-white pb-10 lg:pl-10 contrast-125">
+            A Masterpiece If You're Not In...{" "}
+          </h3>
         </div>
         <h1 className="mx-auto lg:text-8xl text-6xl whitespace-nowrap text-white font-bold contrast-125 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
           The Kitchen{" "}
         </h1>
-      
       </div>
-    
 
       <div className="container mx-auto grid grid-cols-1 lg:grid-cols-3 h-55 text-center">
         <div className="place-self-center">
           <Signup />
         </div>
         <div className="place-self-center">
-          <Typography variant="h2">What is 'The Kitchen?'</Typography>
+          <Typography variant="h2">What is 'The Kitchen'?</Typography>
           <p className="pt-6 text-xl">
             On a pickleball court, there is a seven-foot non-volley zone that
             extends from the net on both sides of the court. The term “kitchen”
@@ -53,12 +51,12 @@ export default function Home() {
           </p>
           <p className="pt-6 pb-6 text-xl">
             Here however, the Kitchen is your best way of reserving a pickleball
-            court for you and your friends to "Dink", "Erne", and "Volley"
+            court for you and your friends to "dink", "erne", and "volley".
           </p>
-          <React.Fragment>
+          {/* <React.Fragment>
             {/* <Button size="lg" onClick={handleOpen}>
               Book A Spot Now!
-            </Button> */}
+            </Button>
             <Dialog
               size="xs"
               open={open}
@@ -105,7 +103,7 @@ export default function Home() {
                 </CardFooter>
               </Card>
             </Dialog>
-          </React.Fragment>
+          </React.Fragment> */}
         </div>
         <div className="place-self-center">
           <Login />
