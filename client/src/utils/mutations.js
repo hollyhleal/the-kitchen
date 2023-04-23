@@ -22,8 +22,9 @@ export const ADD_PLAYER = gql`
 `;
 
 export const ADD_RESERVATION = gql`
-mutation addReservation($reservationId: ID!, $playerId: ID!, $courtId: ID!) {
-  addReservation(reservationId: $reservationId, playerId: $playerId, courtId: $courtId) {
+mutation addReservation($playerId: ID!, $courtId: ID!, 
+  $date: String!, $time: String!) {
+  addReservation(playerId: $playerId, courtId: $courtId, date: $date, time: $time) {
     court {
       _id
     }
