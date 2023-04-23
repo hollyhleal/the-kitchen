@@ -22,11 +22,11 @@ const reservationSchema = new Schema({
     required: true,
   },
 
-  price: {
-    type: Number,
-    required: true,
-    min: 4.99,
-  },
+  // price: {
+  //   type: Number,
+  //   required: true,
+  //   min: 4.99,
+  // },
 });
 
 const Reservation = model("Reservation", reservationSchema);

@@ -22,23 +22,29 @@ export const ADD_PLAYER = gql`
 `;
 
 export const ADD_RESERVATION = gql`
-mutation addReservation($playerId: ID!, $courtId: ID!, 
-  $date: String!, $time: String!) {
-  addReservation(playerId: $playerId, courtId: $courtId, date: $date, time: $time) {
-    court {
-      _id
+  mutation addReservation(
+    $courtId: ID!
+    $playerId: ID!
+    $time: String!
+    $date: String!
+  ) {
+    addReservation(
+      courtId: $courtId
+      playerId: $playerId
+      time: $time
+      date: $date
+    ) {
+      court {
+        _id
+      }
+      player {
+        _id
+      }
+      date
+      time
     }
-    player {
-      _id
-    }
-    price
-    time
   }
-}
-
-
-`
-  ;
+`;
 
 export const REMOVE_PLAYER = gql`
   mutation removeplayer($player: ID!) {
@@ -51,8 +57,4 @@ export const REMOVE_PLAYER = gql`
       }
     }
   }
-
-
-
-
 `;
