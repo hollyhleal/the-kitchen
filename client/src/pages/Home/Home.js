@@ -20,23 +20,27 @@ export default function Home() {
   const handleOpen = () => setOpen((cur) => !cur);
   return (
     <>
-      <div className="text-2xl md:text-4xl">
+      <div className="relative text-2xl">
         <div
           className=" opacity-100 min-h-screen max-h-screen bg-cover bg-center h-96 bg-no-repeat content contrast-100 brightness-75 "
           style={{ backgroundImage: `url(${Paddle})` }}
         ></div>
-        <h3 className="absolute text-5xl  text-white text-left pr-60 top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 contrast-150">
+        <div className="absolute hidden lg:block whitespace-nowrap top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 grid grid-rows-2">
+        <h3 className="text-3xl xl:text-5xl text-white text-left pr-60 pb-10 lg:pl-10 contrast-150">
           You Can't Serve Up{" "}
         </h3>
-        <h3 className="absolute mx-auto text-5xl text-white pl-6 contrast-125 top-1/3 left-1/4 -translate-x-1/2 -translate-y-1/2">
+        <h3 className="mx-auto text-3xl xl:text-5xl text-end text-white pb-10 lg:pl-10 contrast-125">
           A Masterpiece If You're Not In...{" "}
         </h3>
-        <h1 className="absolute mx-auto text-8xl text-white pl-6 font-bold contrast-125 top-1/2 right-1/4 -translate-x-1/2 -translate-y-1/2">
+        </div>
+        <h1 className="mx-auto lg:text-8xl text-6xl whitespace-nowrap text-white font-bold contrast-125 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
           The Kitchen{" "}
         </h1>
+      
       </div>
+    
 
-      <div className="container mx-auto grid grid-cols-3 h-96 text-center">
+      <div className="container mx-auto grid grid-cols-1 lg:grid-cols-3 h-55 text-center pb-20">
         <div className="place-self-center">
           <Signup />
         </div>
