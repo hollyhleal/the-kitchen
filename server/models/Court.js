@@ -1,7 +1,6 @@
 const { Schema, model } = require("mongoose");
 
 const courtSchema = new Schema({
-
   name: {
     type: String,
     required: true,
@@ -10,22 +9,22 @@ const courtSchema = new Schema({
   player1: {
     type: Schema.Types.ObjectId,
     ref: "Player",
-    required: true,
+    required: false,
   },
   player2: {
     type: Schema.Types.ObjectId,
     ref: "Player",
-    required: true,
+    required: false,
   },
   player3: {
     type: Schema.Types.ObjectId,
     ref: "Player",
-    required: true,
+    required: false,
   },
   player4: {
     type: Schema.Types.ObjectId,
     ref: "Player",
-    required: true,
+    required: false,
   },
   reservations: [
     {
