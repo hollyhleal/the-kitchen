@@ -40,7 +40,7 @@ export default function Home() {
       </div>
     
 
-      <div className="container mx-auto grid grid-cols-1 lg:grid-cols-3 h-55 text-center pb-20">
+      <div className="container mx-auto grid grid-cols-1 lg:grid-cols-3 h-55 text-center">
         <div className="place-self-center">
           <Signup />
         </div>
