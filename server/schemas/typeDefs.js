@@ -13,10 +13,10 @@ const typeDefs = gql`
   type Court {
     _id: ID!
     name: String!
-    player1: Player!
-    player2: Player!
-    player3: Player!
-    player4: Player!
+    player1: Player
+    player2: Player
+    player3: Player
+    player4: Player
     reservations: [Reservation]
   }
 
