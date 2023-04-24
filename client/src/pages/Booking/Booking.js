@@ -178,9 +178,9 @@ export default function Booking() {
                 />
               </div>
             </div>
-            <Button className="mt-6" fullWidth>
+            {/* <Button className="mt-6" fullWidth>
               See Availability
-            </Button>
+            </Button> */}
           </form>
         </Card>
       </div>

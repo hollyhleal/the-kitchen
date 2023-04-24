@@ -15,7 +15,6 @@ import {
 } from "@material-tailwind/react";
 import Login from "../../components/Login";
 
-
 export default function Home() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen((cur) => !cur);
@@ -51,7 +50,7 @@ export default function Home() {
             refers to this non-volley zone.
           </p>
           <p className="pt-6 pb-6 text-xl">
-            Here however, the Kitchen is your best way of reserving a pickleball
+            Here however, The Kitchen is your best way of reserving a pickleball
             court for you and your friends to "dink", "erne", and "volley".
           </p>
           {/* <React.Fragment>

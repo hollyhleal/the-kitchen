@@ -30,13 +30,13 @@ function Profile() {
 
   return (
     <>
-      <div className="flex flex-row">
+      <div className="flex flex-row content">
         {/* left-hand side column for profile photo/bio */}
         <div className="basis-1/2 place-self-center text-center my-8">
           <Typography variant="h3">
             Welcome back, {profileInfo.data.name}!
           </Typography>
-          <Card className="w-96 mx-auto">
+          <Card className="w-96 mx-auto bg-sky-500/50">
             <CardHeader floated={false} className="h-80">
               <img src={personIcon} alt="profile" />
             </CardHeader>
@@ -44,11 +44,11 @@ function Profile() {
               <Typography variant="h4" color="blue-gray" className="mb-2">
                 {profileInfo.data.name}
               </Typography>
-              <Typography color="blue" className="font-medium" textGradient>
+              {/* <Typography color="blue" className="font-medium" textGradient>
                 Level
-              </Typography>
+              </Typography> */}
               <Typography className="font-medium">
-                Member Since: {profileInfo.data.createdAt}
+                Member Since: 2023
               </Typography>
             </CardBody>
           </Card>
@@ -59,7 +59,7 @@ function Profile() {
             <a href="/booking">Book a Court</a>
           </Button>
 
-          <Typography variant="h4">Upcoming Reservations</Typography>
+          <Typography variant="h4">Upcoming Reservations:</Typography>
           {newArray.map(({ resDate, resTime, court }) => (
             <div>
               <Typography variant="h6">{resDate}</Typography>

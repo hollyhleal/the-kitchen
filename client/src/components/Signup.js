@@ -3,8 +3,7 @@ import { useMutation } from "@apollo/client";
 import { ADD_PLAYER } from "../utils/mutations";
 import Auth from "../utils/Auth";
 import { redirect } from "react-router-dom"; // Import Redirect
-import { toast } from 'react-toastify';
-
+import { toast } from "react-toastify";
 
 const Signup = ({ showModal, setShowModal }) => {
   const [userFormData, setUserFormData] = useState({
@@ -36,7 +35,7 @@ const Signup = ({ showModal, setShowModal }) => {
       const { data } = await createUser({ variables: { ...userFormData } });
       Auth.login(data.token);
       if (Auth.login) {
-        toast.success('Signed up successfully!');
+        toast.success("Signed up successfully!");
       }
       // history.push("/profile"); // Navigate the user to their profile page
       console.log(data);
@@ -126,7 +125,7 @@ const Signup = ({ showModal, setShowModal }) => {
               <div className="flex items-center justify-between">
                 <button
                   type="submit"
-                  className="w-full flex justify-center py-2 px-4 border    border-transparent rounded-md shadow-sm text-sm font-medium   text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium   text-white bg-blue-500 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                 >
                   Sign up
                 </button>
