@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Card,
   Button,
@@ -15,6 +15,51 @@ import { ADD_RESERVATION } from "../../utils/mutations";
 import { toast } from "react-toastify";
 
 export default function Booking() {
+  const ProductDisplay = () => (
+    <section>
+      <div className="product">
+        <img
+          src="https://i.imgur.com/EHyR2nP.png"
+          alt="The cover of Stubborn Attachments"
+        />
+        <div className="description">
+          <h3>Stubborn Attachments</h3>
+          <h5>$20.00</h5>
+        </div>
+      </div>
+      <form action="/create-checkout-session" target="blank" method="POST">
+        <button type="submit">Checkout</button>
+      </form>
+    </section>
+  );
+
+  const Message = ({ message }) => (
+    <section>
+      <p>{message}</p>
+    </section>
+  );
+
+  function Checkout() {
+    const [message, setMessage] = useState("");
+
+    useEffect(() => {
+      // Check to see if this is a redirect back from Checkout
+      const query = new URLSearchParams(window.location.search);
+
+      if (query.get("/success")) {
+        setMessage("Order placed! You will receive an email confirmation.");
+      }
+
+      if (query.get("canceled")) {
+        setMessage(
+          "Order canceled -- continue to shop around and checkout when you're ready."
+        );
+      }
+    }, []);
+
+    return message ? <Message message={message} /> : <ProductDisplay />;
+  }
+
   const [resDate, setResDate] = useState({
     startDate: null,
   });
@@ -54,18 +99,14 @@ export default function Booking() {
     makeRes(reservationDetails);
     if (reservationDetails) {
       toast.success("Successfully booked your reservation!");
-
     }
   };
 
   const makeRes = async (reservationDetails) => {
     try {
       let { data } = await createReservation({
-        variables: { ...reservationDetails}
-      })
-      
-        
-
+        variables: { ...reservationDetails },
+      });
     } catch (err) {
       console.error(err);
       // setShowAlert(true);
@@ -158,6 +199,13 @@ export default function Booking() {
               </Button>
             </div>
           ))}
+        </div>
+        <div className="flex justify-center stripeBtn">
+          <form action="/create-checkout-session" method="POST">
+            <Button className="mt-6 w-64 my-12 bg-green-800" type="submit">
+              Checkout
+            </Button>
+          </form>
         </div>
       </div>
     </>

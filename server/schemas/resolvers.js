@@ -114,6 +114,10 @@ const resolvers = {
       if (context.player && context.court) {
         const reservation = await Reservation.create({
           reservationId,
+          playerId,
+          courtId,
+          date,
+          time,
         });
         await Court.findOneAndUpdate(
           { _id: context.court._id },

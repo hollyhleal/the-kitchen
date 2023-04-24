@@ -7,6 +7,8 @@ const stripe = require("stripe")(
   "sk_test_51MylV6Ans49T1zFVmXMZwjIfnrIKdY1fNYbsGbOeWkvM8gaoAVDUZTCKhBDCIUCZ9KPF0ATMtTgdAhCxXxLszgl400iJ3Eub4g"
 );
 
+const DOMAIN = "http://localhost:3000";
+
 const { authMiddleware } = require("./utils/auth");
 
 const PORT = process.env.PORT || 3001;
@@ -24,6 +26,24 @@ app.use(express.json());
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../client/build")));
 }
+
+//Stripe
+app.post("/create-checkout-session", async (req, res) => {
+  const session = await stripe.checkout.sessions.create({
+    line_items: [
+      {
+        // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
+        price: "price_1MyzDZAns49T1zFVAz7LwBS5",
+        quantity: 1,
+      },
+    ],
+    mode: "payment",
+    success_url: `${DOMAIN}/success`,
+    cancel_url: `${DOMAIN}?canceled=true`,
+  });
+
+  res.redirect(303, session.url);
+});
 
 // Create a new instance of an Apollo server with the GraphQL schema
 const startApolloServer = async (typeDefs, resolvers) => {
