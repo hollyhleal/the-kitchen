@@ -54,18 +54,14 @@ export default function Booking() {
     makeRes(reservationDetails);
     if (reservationDetails) {
       toast.success("Successfully booked your reservation!");
-
     }
   };
 
   const makeRes = async (reservationDetails) => {
     try {
       let { data } = await createReservation({
-        variables: { ...reservationDetails}
-      })
-      
-        
-
+        variables: { ...reservationDetails },
+      });
     } catch (err) {
       console.error(err);
       // setShowAlert(true);
@@ -137,9 +133,9 @@ export default function Booking() {
                 />
               </div>
             </div>
-            <Button className="mt-6" fullWidth>
+            {/* <Button className="mt-6" fullWidth>
               See Availability
-            </Button>
+            </Button> */}
           </form>
         </Card>
       </div>
