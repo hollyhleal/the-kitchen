@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import {
   Card,
@@ -15,7 +14,6 @@ import { useMutation } from "@apollo/client";
 import { ADD_RESERVATION } from "../../utils/mutations";
 import { toast } from "react-toastify";
 
-
 export default function Booking() {
   const [resDate, setResDate] = useState({
     startDate: null,
@@ -24,14 +22,13 @@ export default function Booking() {
 
   const object = decode(localStorage.getItem("id_token"));
   console.log(object.data._id);
-  const [createReservation] = useMutation(ADD_RESERVATION)
-
+  const [createReservation] = useMutation(ADD_RESERVATION);
 
   const [resTime, setResTime] = useState({
     hour: null,
   });
 
-let reservationDetails = {}
+  let reservationDetails = {};
 
   const selectResTime = (resTime) => {
     console.log(resTime);
@@ -52,7 +49,7 @@ let reservationDetails = {}
     localStorage.setItem("court", e.target.id);
     reservationDetails["playerId"] = object.data._id;
     reservationDetails["courtId"] = e.target.id;
-    reservationDetails["date"] = resDate;
+    reservationDetails["date"] = resDate.startDate;
     reservationDetails["time"] = resTime;
     makeRes(reservationDetails);
     if (reservationDetails) {
@@ -87,10 +84,6 @@ let reservationDetails = {}
     // console.log(resObj);
   };
 
-
-
-
-  
   return (
     <>
       <div className="container mx-auto">
