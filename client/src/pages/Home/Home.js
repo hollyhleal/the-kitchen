@@ -15,6 +15,7 @@ import {
 } from "@material-tailwind/react";
 import Login from "../../components/Login";
 
+
 export default function Home() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen((cur) => !cur);
