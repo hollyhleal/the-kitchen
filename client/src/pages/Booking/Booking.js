@@ -13,6 +13,7 @@ import { courts } from "../../seeds/CourtData";
 import decode from "jwt-decode";
 import { useMutation } from "@apollo/client";
 import { ADD_RESERVATION } from "../../utils/mutations";
+import { toast } from "react-toastify";
 
 
 export default function Booking() {
@@ -54,6 +55,10 @@ let reservationDetails = {}
     reservationDetails["date"] = resDate;
     reservationDetails["time"] = resTime;
     makeRes(reservationDetails);
+    if (reservationDetails) {
+      toast.success("Successfully booked your reservation!");
+
+    }
   };
 
   const makeRes = async (reservationDetails) => {
@@ -61,6 +66,9 @@ let reservationDetails = {}
       let { data } = await createReservation({
         variables: { ...reservationDetails}
       })
+      
+        
+
     } catch (err) {
       console.error(err);
       // setShowAlert(true);

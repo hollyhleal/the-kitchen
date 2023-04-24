@@ -3,6 +3,8 @@ import { useMutation } from "@apollo/client";
 import { ADD_PLAYER } from "../utils/mutations";
 import Auth from "../utils/Auth";
 import { redirect } from "react-router-dom"; // Import Redirect
+import { toast } from 'react-toastify';
+
 
 const Signup = ({ showModal, setShowModal }) => {
   const [userFormData, setUserFormData] = useState({
@@ -33,6 +35,9 @@ const Signup = ({ showModal, setShowModal }) => {
     try {
       const { data } = await createUser({ variables: { ...userFormData } });
       Auth.login(data.token);
+      if (Auth.login) {
+        toast.success('Signed up successfully!');
+      }
       // history.push("/profile"); // Navigate the user to their profile page
       console.log(data);
       redirect("/profile");

@@ -13,6 +13,9 @@ import { Navigate } from "react-router-dom"
 import NavBar from "./components/Navbar";
 import Home from "./pages/Home/Home";
 import Footer from "./components/Footer";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 //import pages
 
@@ -43,8 +46,9 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-    <Router>
+      <Router>
       <NavBar />
+        <ToastContainer />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/profile" element={<Profile />} />
