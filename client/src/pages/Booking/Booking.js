@@ -98,7 +98,9 @@ export default function Booking() {
     reservationDetails["time"] = resTime;
     makeRes(reservationDetails);
     if (reservationDetails) {
-      toast.success("Successfully booked your reservation!");
+      toast.warning(
+        "Your court is on hold for 10 minutes. Please proceed to checkout!"
+      );
     }
   };
 
