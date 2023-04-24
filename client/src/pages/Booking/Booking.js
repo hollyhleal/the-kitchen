@@ -20,7 +20,7 @@ export default function Booking() {
   // console.log(value);
 
   const object = decode(localStorage.getItem("id_token"));
-  console.log(object.data._id);
+  // console.log(object.data._id);
   const [createReservation] = useMutation(ADD_RESERVATION);
 
   const [resTime, setResTime] = useState({
@@ -30,14 +30,14 @@ export default function Booking() {
   let reservationDetails = {};
 
   const selectResTime = (resTime) => {
-    console.log(resTime);
+    // console.log(resTime);
     setResTime(resTime);
     localStorage.setItem("resTime", resTime);
   };
-  console.log(resTime);
+  // console.log(resTime);
 
   const selectResDate = (resDate) => {
-    console.log(resDate.startDate);
+    // console.log(resDate.startDate);
     setResDate(resDate);
     localStorage.setItem("resDate", resDate.startDate);
     localStorage.setItem("player", object.data._id);
@@ -48,9 +48,10 @@ export default function Booking() {
     localStorage.setItem("court", e.target.id);
     reservationDetails["playerId"] = object.data._id;
     reservationDetails["courtId"] = e.target.id;
-    reservationDetails["date"] = resDate;
+    reservationDetails["date"] = resDate.startDate;
     reservationDetails["time"] = resTime;
     makeRes(reservationDetails);
+    console.log(reservationDetails);
   };
 
   const makeRes = async (reservationDetails) => {

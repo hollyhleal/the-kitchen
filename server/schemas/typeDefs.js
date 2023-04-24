@@ -46,7 +46,12 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     removePlayer(playerId: ID!): Player
     addCourt(courtId: ID!): Court
-    addReservation(playerId: ID!, courtId: ID!, date: String!, time: String!): Reservation
+    addReservation(
+      playerId: ID!
+      courtId: ID!
+      date: String!
+      time: String!
+    ): Reservation
   }
 `;
 
