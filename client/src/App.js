@@ -8,19 +8,20 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
-import { Navigate } from "react-router-dom"
+import { Navigate } from "react-router-dom";
 
 import NavBar from "./components/Navbar";
 import Home from "./pages/Home/Home";
 import Footer from "./components/Footer";
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 //import pages
 
 import Profile from "./pages/Profile/Profile";
 import Booking from "./pages/Booking/Booking";
+import Success from "./components/Success";
+import Cancel from "./components/Cancel";
 
 //middleware
 const httpLink = createHttpLink({
@@ -47,17 +48,18 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-      <NavBar />
+        <NavBar />
         <ToastContainer />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/booking" element={<Booking />} />
-          {/* <Route path="/payment" element={<Payment />} /> */}
-        <Route path="profile" element={Profile} /> 
-      </Routes>
-      <Footer />
-    </Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/booking" element={<Booking />} />
+          <Route path="success" element={<Success />} />
+          <Route path="cancel" element={<Cancel />} />
+          <Route path="profile" element={Profile} />
+        </Routes>
+        <Footer />
+      </Router>
     </ApolloProvider>
   );
 }
