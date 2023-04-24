@@ -4,16 +4,13 @@ import { LOGIN_USER } from "../utils/mutations";
 import Auth from "../utils/Auth.js";
 import { useNavigate } from "react-router-dom";
 import Profile from "../pages/Profile/Profile";
-import { toast } from 'react-toastify';
-
-
+import { toast } from "react-toastify";
 
 const Login = () => {
   const [userFormData, setUserFormData] = useState({ email: "", password: "" });
   const [validated] = useState(false);
   // const [showAlert, setShowAlert] = useState(false);
   const navigate = useNavigate();
-
 
   // mutation for login of user
   const [loginUser] = useMutation(LOGIN_USER);
@@ -33,17 +30,16 @@ const Login = () => {
 
     try {
       const { data } = await loginUser({ variables: { ...userFormData } });
-   
+
       Auth.login(data.login.token);
       if (Auth.login) {
-        toast.success('Logged in successfully!');
+        toast.success("Logged in successfully!");
       }
 
       console.log("FORM SUBMIT", data);
       setTimeout(() => {
         navigate.push(<Profile />);
       }, 4000);
-
     } catch (err) {
       console.error(err);
       // setShowAlert(true);
@@ -57,8 +53,6 @@ const Login = () => {
 
   return (
     <>
-  
-
       <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
@@ -119,7 +113,7 @@ const Login = () => {
                 <div className="text-sm">
                   <a
                     href="#"
-                    className="font-medium text-indigo-600 hover:text-indigo-500"
+                    className="font-medium text-blue-600 hover:text-blue-500"
                   >
                     Forgot your password?
                   </a>
@@ -128,7 +122,7 @@ const Login = () => {
               <div>
                 <button
                   type="submit"
-                  className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
                   Sign in
                 </button>

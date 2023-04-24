@@ -44,7 +44,7 @@ export default function NavBar() {
 
   return (
     <>
-      <Navbar className="sticky inset-0 z-10 h-max max-w-full bg-teal-100 rounded-none py-2 px-4 lg:px-8 lg:py-4">
+      <Navbar className="sticky inset-0 z-10 h-max max-w-full bg-sky-500/50 rounded-none py-2 px-4 lg:px-8 lg:py-4">
         <div className="flex items-center justify-between">
           <a
             href="/"
